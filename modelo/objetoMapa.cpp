@@ -1,4 +1,4 @@
-#include "objetoMapa.h"
+#include "objetomapa.h"
 
 /**
  * @file   objetoMapa.cpp
@@ -23,8 +23,8 @@ String ObjetoMapa::getTile()
        /**
         * 
         */
-        String n_tile = "no se";
-        return n_tile;
+        
+        
 }
 
  

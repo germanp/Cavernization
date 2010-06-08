@@ -2,7 +2,7 @@
 #define OBJETO_MAPA_H
 
 /**
- * @file   objetoMapa.h
+ * @file   objetomapa.h
  * @author braian <divided-by_joy@hotmail.com>
  * @date   Sat Jun  5 19:14:58 2010
  *

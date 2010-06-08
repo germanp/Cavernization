@@ -12,16 +12,20 @@
  *  <todo>
  */
 
-class Terreno:Tablero{
+class Terreno{
+    
+      private: 
+              ObjetoMapa ordenObjetos[];    
       protected:
              /**
               *  
               */ 
-              String getTile();
+              int getTipo(Terreno t);
              /**
               *  
               */ 
               bool esPisable();
+              
              
 }
 #endif // TERRENO_H

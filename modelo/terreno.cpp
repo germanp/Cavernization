@@ -11,15 +11,14 @@
  *  <>
  */
  
-String Terreno::getTile(){
-                        /**
-                        * 
-                        */
-                        return "tile1";
-                        }
+int Terreno::getTipo(Terreno t){
+
+
+                        
+}
+
 bool Terreno::esPisable(){
-                    /**
-                     * 
-                     */
-                     return true;
-                     }
+
+
+
+}

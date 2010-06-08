@@ -6,7 +6,7 @@
  * @author braian <divided-by_joy@hotmail.com>
  * @date   Sat Jun  5 19:14:58 2010
  *
- * @brief <Se encarga de agregar y mostrar los objetos en el tablero>
+ * @brief <Se encarga de agregar y mostrar los distintos objetos sobre el tablero>
  *
  * @section TODO
  *  <>
@@ -21,27 +21,39 @@ class Tablero{
              int alto;
       public:
              /**
-              * Objeto de tipo terreno que guerda los diferentes 
-              * objetos mapa del tablero
+              * Objeto de tipo Terreno que guarda los diferentes 
+              * terrenos del mapa
               */
-             Terreno matriz[ancho][alto];
+             Terreno terrenos[ancho][alto];
+             
+             /**
+              * Objeto de tipo ObjetoMapa que guarda los diferentes 
+              * objetos (edificios, arboles, personajes, etc.) del mapa
+              */
+             ObjetoMapa objetos[ancho][alto];
+             
              /**
                * Muestra los distintos objetos en la 
                * posición correspondiente del tablero
                *
-               * @param nada
+               * @param 
                *
-               * @return nada
+               * @return 
                */
              void dibujar();
-               /**
+             
+             /**
                * Agrega un nuevo personaje al tablero
                *
                * @param objeto de ObjetoMapa
                *
-               * @return nada
+               * @return 
                */
              void nuevoObjetoMapa(ObjetoMapa o);
+             
+             /**
+              * Constructor
+              */
              Tablero(int ancho,int alto);
 }
 #endif // TABLERO_H
