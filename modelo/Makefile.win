@@ -1,0 +1,45 @@
+# Project: modelo
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = tablero.o objetoMapa.o terreno.o arbol.o monumento.o prueba.o $(RES)
+LINKOBJ  = tablero.o objetoMapa.o terreno.o arbol.o monumento.o prueba.o $(RES)
+LIBS =  -L"lib"  
+INCS =  -I"include" 
+CXXINCS =  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include" 
+BIN  = modelo.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before modelo.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "modelo.exe" $(LIBS)
+
+tablero.o: tablero.cpp
+	$(CPP) -c tablero.cpp -o tablero.o $(CXXFLAGS)
+
+objetoMapa.o: objetoMapa.cpp
+	$(CPP) -c objetoMapa.cpp -o objetoMapa.o $(CXXFLAGS)
+
+terreno.o: terreno.cpp
+	$(CPP) -c terreno.cpp -o terreno.o $(CXXFLAGS)
+
+arbol.o: arbol.cpp
+	$(CPP) -c arbol.cpp -o arbol.o $(CXXFLAGS)
+
+monumento.o: monumento.cpp
+	$(CPP) -c monumento.cpp -o monumento.o $(CXXFLAGS)
+
+prueba.o: prueba.cpp
+	$(CPP) -c prueba.cpp -o prueba.o $(CXXFLAGS)
