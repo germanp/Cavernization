@@ -35,25 +35,15 @@ class Tablero{
              /**
                * Muestra los distintos objetos en la 
                * posición correspondiente del tablero
-               *
-               * @param 
-               *
-               * @return 
                */
              void dibujar();
              
              /**
                * Agrega un nuevo personaje al tablero
                *
-               * @param objeto de ObjetoMapa
-               *
-               * @return 
+               * @param ObjetoMapa o
                */
              void nuevoObjetoMapa(ObjetoMapa o);
              
-             /**
-              * Constructor
-              */
-             Tablero(int ancho,int alto);
 }
 #endif // TABLERO_H

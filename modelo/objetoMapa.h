@@ -6,7 +6,10 @@
  * @author braian <divided-by_joy@hotmail.com>
  * @date   Sat Jun  5 19:14:58 2010
  *
- * @brief <>
+ * @brief <Clase padre de la cual heredan los distintos tipos de objetos
+ *         (arboles, casas, personajes).
+ *         Define los distintos atributos y comportamiento generales de estos
+ *         objetos>
  *
  * @section TODO
  *  <>
@@ -20,13 +23,10 @@ class ObjetoMapa{
               int ancho,alto,x,y;
       public:
              /**
-              * Metodo que devuelve el nombre del tile del objeto
+              * Metodo que devuelve el nombre/url del tile del objeto
               *
-              * @param 
-              *
-              * @return 
+              * @return String
               */
              String getTile();
-             ObjetoMapa(int ancho,int alto,int x,int y);
       }
 #endif // OBJETO_MAPA_H

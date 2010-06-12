@@ -5,7 +5,7 @@
  * @author braian <divided-by_joy@hotmail.com>
  * @date   Sat Jun  5 19:14:58 2010
  *
- * @brief <>
+ * @brief <Implementación de los métodos de la clase Terreno.>
  *
  * @section TODO
  *  <>
