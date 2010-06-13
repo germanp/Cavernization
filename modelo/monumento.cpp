@@ -1,5 +1,3 @@
-#include "monumento.h"
-
 /**
  * @file   monumento.cpp
  * @author braian <divided-by_joy@hotmail.com>
@@ -11,7 +9,6 @@
  *  <>
  */
  
-void Monumento::darBonificacion(){
-     
+#include "monumento.h"
 
-}
+void Monumento::darBonificacion(){}

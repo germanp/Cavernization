@@ -12,12 +12,15 @@
  *  <>
  */
 
-class Casa: Edificio{
+#include "edificio.h"
+#include "fiel.h"
 
-      public:
-             /**
-              * Agrega un fiel a la casa
-              */ 
-             Fiel nuevoFiel();
-}
+class Casa:Edificio{
+ public:
+  /**
+   * Agrega un fiel a la casa
+   */
+  inline int getTipo();
+  Fiel* nuevoFiel();
+};
 #endif // CASA_H

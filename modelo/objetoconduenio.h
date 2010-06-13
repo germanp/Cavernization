@@ -14,7 +14,12 @@
  *  <>
  */
 
-class ObjetoConDuenio: ObjetoMapa{
+#include "objetomapa.h"
+#include "jugador.h"
 
-}
+class ObjetoConDuenio:ObjetoMapa{
+ private:
+  Jugador* duenio;
+};
+
 #endif // OBJETO_CON_DUENIO_H

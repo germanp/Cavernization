@@ -13,48 +13,51 @@
  *  <>
  */
 
+#include "edificio.h"
+#include "monumento.h"
+#include "personaje.h"
+
 class Jugador{
-      private:
-             /**
-              * Cantidad de mana que posee el jugador
-              */ 
-             int mana;
-      public:
-             /**
-              * Hechizos disponibles  
-              */
-              Hechizo hechizos[];
-              /**
-               * Selecciona un personaje 
-               * @param Personaje p
-               */
-              void seleccionar(Personaje p);
-              /**
-               * Selecciona un edificio 
-               * @param Edificio e
-               */
-              void seleccionar(Edificio e);
-              /**
-               * Mueve al personaje hacia una posicion en el tablero 
-               * @param Personaje p, int x, int y
-               */
-              void moverPersonaje(Personaje p, int x, int y);
-              /**
-               * Ordena al personaje construir un edificio 
-               * @param Personaje p, Edificio e
-               */
-              void mandarConstruir(Personaje p, Edificio e);
-              /**
-               * Ordena al personaje atacar un edificio 
-               * @param Personaje p, Edificio e
-               */
-              void mandarAtacar(Personaje p, Edificio e);
-              /**
-               * Ordena al personaje rezar ante un monumento 
-               * @param Monumento m,Personaje p
-               */
-              void mandarRezar(Monumento m, Personaje p);
-              
-             
-}
+ private:
+  /**
+   * Cantidad de mana que posee el jugador
+   */ 
+  int mana;
+ public:
+  /**
+   * Hechizos disponibles  
+   */
+  //  Hechizo hechizos[];
+  /**
+   * Selecciona un personaje 
+   * @param Personaje p
+   */
+  void seleccionar(Personaje p);
+  /**
+   * Selecciona un edificio 
+   * @param Edificio e
+   */
+  void seleccionar(Edificio e);
+  /**
+   * Mueve al personaje hacia una posicion en el tablero 
+   * @param Personaje p, int x, int y
+   */
+  void moverPersonaje(Personaje p, int x, int y);
+  /**
+   * Ordena al personaje construir un edificio 
+   * @param Personaje p, Edificio e
+   */
+  void mandarConstruir(Personaje p, Edificio e);
+  /**
+   * Ordena al personaje atacar un edificio 
+   * @param Personaje p, Edificio e
+   */
+  void mandarAtacar(Personaje p, Edificio e);
+  /**
+   * Ordena al personaje rezar ante un monumento 
+   * @param Monumento m,Personaje p
+   */
+  void mandarRezar(Monumento m, Personaje p);
+};
+
 #endif // JUGADOR_H

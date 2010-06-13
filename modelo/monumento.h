@@ -13,12 +13,13 @@
  *  <>
  */
 
+#include "objetomapa.h"
+
 class Monumento:ObjetoMapa{
-      public:
-             /**
-              *  
-              */ 
-              void darBonificacion();
-             
-}
+ public:
+  /**
+   *  
+   */ 
+  void darBonificacion();
+};
 #endif // MONUMENTO_H

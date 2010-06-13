@@ -13,15 +13,16 @@
  *  <>
  */
 
-class Edificio: ObjetoConDuenio{
+#include "objetoconduenio.h"
 
-      protected:
-                
-                int vida;
-                
-                /**
-                 * Devuelve el tipo de edificio: 1=casa, 2=cuartel, 3=templo
-                 */ 
-                int getTipo(Edificio e);
-}
+class Edificio:ObjetoConDuenio{
+ protected:
+  int vida;
+ public:
+  /**
+   * Devuelve el tipo de edificio: 1=casa, 2=cuartel, 3=templo
+   */
+  virtual int getTipo()=0;
+};
+
 #endif // EDIFICIO_H

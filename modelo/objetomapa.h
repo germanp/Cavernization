@@ -12,21 +12,21 @@
  *         objetos>
  *
  * @section TODO
- *  <>
+ *
  */
 
-class ObjetoMapa{
-      private:
-              /**
-               * Variable para la medidas y posicion del objeto
-               */
-              int ancho,alto,x,y;
-      public:
-             /**
-              * Metodo que devuelve el nombre/url del tile del objeto
-              *
-              * @return String
-              */
-             String getTile();
-      }
+class ObjetoMapa {
+ protected:
+  /**
+   * Variable para la medidas y posicion del objeto
+   */
+  int ancho,alto,x,y;
+ public:
+  /**
+   * Método que devuelve el tipo de objeto
+   *
+   * @return
+   */
+  virtual int getTipo()=0;
+};
 #endif // OBJETO_MAPA_H

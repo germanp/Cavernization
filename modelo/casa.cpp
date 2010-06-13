@@ -1,5 +1,3 @@
-#include "casa.h"
-
 /**
  * @file   casa.cpp
  * @author braian <divided-by_joy@hotmail.com>
@@ -10,8 +8,8 @@
  * @section TODO
  *  <>
  */
+
+#include "casa.h"
  
-Fiel Casa::nuevoFiel(){
-
-
-} 
+Fiel* Casa::nuevoFiel(){} 
+inline int Casa::getTipo(){ return 1; }

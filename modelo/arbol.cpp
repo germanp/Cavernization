@@ -1,6 +1,3 @@
-#include "arbol.h"
-#include "objetomapa.h"
-
 /**
  * @file   arbol.cpp
  * @author braian <divided-by_joy@hotmail.com>
@@ -11,12 +8,12 @@
  * @section TODO
  *  <>
  */
- 
+
+#include "arbol.h"
+#include "objetomapa.h"
+
 void Arbol::setMadera(){
 
-                        
 }
 int Arbol::getTipo(Arbol a){
-
-
 }

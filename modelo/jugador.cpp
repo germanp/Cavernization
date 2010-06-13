@@ -11,9 +11,9 @@
  *  <>
  */
 
+#include "jugador.h"
+
 void Jugador::seleccionar(Personaje p){
-
-
 }
 
 void Jugador::seleccionar(Edificio e){

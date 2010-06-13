@@ -15,23 +15,21 @@
  */
 
 class Arbol:ObjetoMapa{
-      protected:
-             /**
-              *  Cantidad de piezas de madera que forman la imagen del arbol.
-              */ 
-              int piezasMadera;
-             /**
-              * Asigna el tipo de madera del arbol. 
-              */ 
-              void setMadera();
-              /**
-               * Devuelve el tipo de arbol, 1=arbol chico, 2=arbol mediano, 
-               * 3=arbol grande. 
-               *
-               * @param Arbol a 
-               * @return int
-               */
-              int getTipo(Arbol a);
-             
+ protected:
+  /**
+   *  Cantidad de piezas de madera que forman la imagen del arbol.
+   */ 
+  int piezasMadera;
+  /**
+   * Asigna el tipo de madera del arbol. 
+   */ 
+  void setMadera();
+  /**
+   * Devuelve el tipo de arbol, 1=arbol chico, 2=arbol mediano, 
+   * 3=arbol grande. 
+   *
+   * @return int
+   */
+  int getTipo();
 }
 #endif // ARBOL_H
