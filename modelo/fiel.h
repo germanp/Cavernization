@@ -6,7 +6,7 @@
  * @author braian <divided-by_joy@hotmail.com>
  * @date   Tue Jun  8 19:40:58 2010
  *
- * @brief <Personaje de tipo Fiel>
+ * @brief Personaje de tipo Fiel
  *
  * @section TODO
  *  <>
@@ -16,7 +16,7 @@
 #include "arbol.h"
 #include "edificio.h"
 
-class Fiel: Personaje{
+class Fiel:Personaje{
  public:
   /**
    * Ordena a un fiel a construir algun edificio

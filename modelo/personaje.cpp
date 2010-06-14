@@ -1,5 +1,3 @@
-#include "personaje.h"
-
 /**
  * @file   personaje.cpp
  * @author braian <divided-by_joy@hotmail.com>
@@ -11,7 +9,9 @@
  *  <>
  */
 
-int Personaje::getEstado(){
+#include "personaje.h"
+
+/*int Personaje::getEstado(){
 
 
 }
@@ -49,5 +49,4 @@ void Personaje::recibirGolpe(int danio){
 void Personaje::morir(){
      
      
-}
-   
+}*/

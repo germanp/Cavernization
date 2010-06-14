@@ -13,9 +13,9 @@
  *  <>
  */
 
-/*#include "edificio.h"
+#include "edificio.h"
 #include "monumento.h"
-#include "personaje.h"*/
+#include "personaje.h"
 
 class Jugador{
   

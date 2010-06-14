@@ -13,7 +13,7 @@
 #include "objetomapa.h"
 
 void Arbol::setMadera(){
-
 }
-int Arbol::getTipo(Arbol a){
+
+int Arbol::getTipo(){
 }

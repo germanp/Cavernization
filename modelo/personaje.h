@@ -14,14 +14,14 @@
  */
 
 #include "objetoconduenio.h"
-/*#include "edificio.h"
-  #include "monumento.h"*/
+#include "edificio.h"
+#include "monumento.h"
 
 
 class Personaje:ObjetoConDuenio{
-  /* private:
+ private:
   int vida;
-  int velocidad;
+  /*int velocidad;
   int fuerzaGolpe;*/
  /*  /\* */
  /*   * Orientacion del personaje: 1=sur, */

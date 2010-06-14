@@ -21,11 +21,6 @@ class Terreno{
   //  ObjetoMapa objetos[];
  public:
   /**
-   * Devuelve el tipo del terreno identificado por un
-   * número para ser traducido en una imágen por la vista
-   */ 
-  virtual int getTipo()=0;
-  /**
    * Permite conocer si el terreno es pisable o no.
    * La clase hija implementa este método y devuelve según
    * 0 o 1 corresponda

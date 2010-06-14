@@ -13,7 +13,7 @@
  */
 
 #include "edificio.h"
-#include "fiel.h"
+//#include "fiel.h"
 
 class Casa:Edificio{
  public:
@@ -21,6 +21,6 @@ class Casa:Edificio{
    * Agrega un fiel a la casa
    */
   inline int getTipo();
-  Fiel* nuevoFiel();
+  //  Fiel* nuevoFiel();
 };
 #endif // CASA_H

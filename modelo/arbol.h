@@ -14,6 +14,8 @@
  *  <>
  */
 
+#include "objetomapa.h"
+
 class Arbol:ObjetoMapa{
  protected:
   /**
@@ -23,13 +25,13 @@ class Arbol:ObjetoMapa{
   /**
    * Asigna el tipo de madera del arbol. 
    */ 
-  void setMadera();
+  inline void setMadera();
   /**
    * Devuelve el tipo de arbol, 1=arbol chico, 2=arbol mediano, 
    * 3=arbol grande. 
    *
    * @return int
    */
-  int getTipo();
-}
+  inline int getTipo();
+};
 #endif // ARBOL_H

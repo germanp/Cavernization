@@ -1,5 +1,3 @@
-#include "fiel.h"
-
 /**
  * @file   fiel.cpp
  * @author braian <divided-by_joy@hotmail.com>
@@ -8,15 +6,13 @@
  * @brief <Implementa los metodos de la clase Fiel.>
  *
  * @section TODO
- *  <>
+ *
  */
+
+#include "fiel.h"
  
-void Fiel::construir(Edificio e){
-     
-    
+void Fiel::construir(Edificio e){    
 } 
 
 void Fiel::talar(Arbol a){
-     
-    
 } 

@@ -11,5 +11,5 @@
 
 #include "casa.h"
  
-Fiel* Casa::nuevoFiel(){} 
+//Fiel* Casa::nuevoFiel(){} 
 inline int Casa::getTipo(){ return 1; }
