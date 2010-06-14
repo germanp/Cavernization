@@ -18,7 +18,7 @@
 
 class Terreno{
  protected:
-  ObjetoMapa objetos[];
+  //  ObjetoMapa objetos[];
  public:
   /**
    * Devuelve el tipo del terreno identificado por un

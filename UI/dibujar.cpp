@@ -14,6 +14,8 @@
 #include <SDL/SDL_image.h>
 #include <mapa.h>
 
+#define  REFREZCO 1000/50 // Tiempo de refrezco 50 veces por segundo
+
 int Dibujar(void* v){
   
   while (1){
@@ -22,6 +24,6 @@ int Dibujar(void* v){
     // TODO: Implementar el dibujamiento //
     ///////////////////////////////////////
     printf("Dibujando...\n");
-    SDL_Delay(DELAY);
+    SDL_Delay(REFREZCO);
   }
 }

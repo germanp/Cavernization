@@ -11,10 +11,12 @@
 #ifndef MAPA_H
 #define MAPA_H
 
+#include "terreno.h"
+
 class Mapa {
  private:
-  const int ANCHO;
-  const int ALTO;
+  int ANCHO;
+  int ALTO;
   Terreno* mapa[];
   static Mapa* _instance;
   /** 
@@ -23,7 +25,7 @@ class Mapa {
    * @param file Ruta del archivo de datos para cargar 
    *		(queda pendiente)
    */
-  Mapa();
+  Mapa(const char*);
 
  public:
   inline int getAncho();

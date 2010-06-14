@@ -8,8 +8,9 @@
  * 
  */
 
-#include "mapa.h"
+#include <unistd.h>
 #include <stdio.h>
+#include "mapa.h"
 
 Mapa* Mapa::_instance=NULL;
 
@@ -22,14 +23,16 @@ Mapa* Mapa::getInstance(const char* file){
 }
 inline Mapa* Mapa::getInstance(){ return _instance; }
 
-Mapa::Mapa(const char* file){
+Mapa::Mapa(const char* file){ // Cambiar!!
+  ANCHO=10;
+  ALTO=10;
 // TODO: Implementar la carga del mapa
 }
 
-inline int getAncho(){ return ANCHO; }
-inline int getAlto(){ return ALTO; }
+inline int Mapa::getAncho(){ return ANCHO; }
+inline int Mapa::getAlto(){ return ALTO; }
 
-inline Terreno* operator[](int pos){
+Terreno* Mapa::operator[](int pos){
   return mapa[pos];
 }
 
