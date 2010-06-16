@@ -13,23 +13,23 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <mapa.h>
-#include "dibujar.h"
+#include "input.h"
 
 #define  REFREZCO 1000/50 // Tiempo de refrezco 50 veces por segundo
 
-int thr_Dibujar(void* v){
+int thr_Input(void* v){
   SDL_Surface* s=(SDL_Surface*)v;
-  Dibujar(s);
+  Input(s);
   return 0;
 }
 
-inline void Dibujar(SDL_Surface* screen){
+inline void Input(SDL_Surface* screen){
   
   while (1){
     ///////////////////////////////////////
     // TODO: Implementar el dibujamiento //
     ///////////////////////////////////////
-    printf("Dibujando...\n");
+    printf("Esperando entrada...\n");
     SDL_Delay(REFREZCO);
   }
 }

@@ -14,13 +14,14 @@
 
 Mapa* Mapa::_instance=NULL;
 
-Mapa* Mapa::getInstance(const char* file){
+Mapa* Mapa::abrirMapa(const char* file){
   if (!_instance){
     _instance=new Mapa(file);
     printf("Nuevo Mapa\n");
   }
   return _instance;
 }
+
 inline Mapa* Mapa::getInstance(){ return _instance; }
 
 Mapa::Mapa(const char* file){ // Cambiar!!

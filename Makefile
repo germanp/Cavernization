@@ -21,7 +21,7 @@ VERSION=1.0
 DISTDIR=$(top)cavernization-$(VERSION)
 top_builddir = ..
 
-DEP_FILES=.deps/main.P .deps/terrenos.P .deps/input.P .deps/mapa.P .deps/terrenos.P .deps/dibujar.P .deps/casa.P .deps/jugador.P .deps/arbol.P .deps/personaje.P .deps/terreno.P .deps/dibujar.P .deps/input.P .deps/objetomapa.P .deps/casa.P .deps/jugador.P .deps/objetoconduenio.P .deps/personaje.P .deps/monumento.P .deps/fiel.P .deps/edificio.P
+DEP_FILES=.deps/main.P .deps/terrenos.P .deps/input.P .deps/mapa.P .deps/terrenos.P .deps/dibujar.P .deps/casa.P .deps/jugador.P .deps/arbol.P .deps/personaje.P .deps/terreno.P .deps/dibujar.P .deps/input.P .deps/objetomapa.P .deps/casa.P .deps/jugador.P .deps/objetoconduenio.P .deps/personaje.P .deps/monumento.P .deps/fiel.P .deps/edificio.P .deps/main.P
 
 all: cavernization
 

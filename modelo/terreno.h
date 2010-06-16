@@ -11,14 +11,22 @@
  *         dibujados.
  *
  * @section TODO
- *  <>
  */
 
 #include "objetomapa.h"
+#include "edificio.h"
+#include "personaje.h"
+#include <list>
+#include <unistd.h>
+
 
 class Terreno{
  protected:
-  //  ObjetoMapa objetos[];
+  ::std::list<ObjetoMapa*> objetosNaturales; // Lista de árboles y
+				     // monumentos. Se dibujan primero.
+  Edificio* e; // Si el terreno cuenta con un edificio. Se
+		      // dibujan segundo
+  ::std::list<Personaje*> personajes; // Lista de personajes. Se dibujan al final
  public:
   /**
    * Permite conocer si el terreno es pisable o no.

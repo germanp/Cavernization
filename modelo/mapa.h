@@ -30,9 +30,21 @@ class Mapa {
  public:
   inline int getAncho();
   inline int getAlto();
-
+  /** 
+   * Devuelve la instancia del Mapa del juego. Es un Singleton.
+   * 
+   * @return 
+   */
   static Mapa* getInstance();
-  static Mapa* getInstance(const char* file);
+  /** 
+   * Carga el mapa de un archivo. Se debe usar la primera vez. Después
+   * se usa getInstance();
+   * 
+   * @param file 
+   * 
+   * @return 
+   */
+  static Mapa* abrirMapa(const char* file);
   /** 
    * Operador [] sobrecargado para recorrer la matríz de Terreno
    * 
