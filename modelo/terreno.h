@@ -34,5 +34,6 @@ class Terreno{
    * 0 o 1 corresponda
    */ 
   virtual bool esPisable()=0;
+  virtual int getTipo()=0;
 };
 #endif // TERRENO_H

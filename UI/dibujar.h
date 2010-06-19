@@ -1,6 +1,19 @@
+/**
+ * @file   dibujar.h
+ * @author german <german@german-desktop>
+ * @date   Sat Jun 19 12:18:47 2010
+ * 
+ * @brief  Este archivo contiene las definiciones de de las funciones
+ * de carga de sprites y dibujado en la pantallla.
+ * 
+ * 
+ */
+
+
 #ifndef DIBUJAR_H
 #define DIBUJAR_H
 
+#include <SDL.h>
 
 /** 
  * Es un wrapper para que quede bien el prototipo de la función Dibujar
@@ -20,5 +33,7 @@ int thr_Dibujar(void* v);
  * @return 
  */
 inline void Dibujar(SDL_Surface* screen);
+
+
 
 #endif // DIBUJAR_H

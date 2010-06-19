@@ -23,8 +23,6 @@ Mapa* Mapa::abrirMapa(const char* file){
   return _instance;
 }
 
-inline Mapa* Mapa::getInstance(){ return _instance; }
-
 Mapa::Mapa(const char* file): ANCHO(10), ALTO(10){ // Cambiar!!
   int m[100]= {0,0,0,0,0,0,0,0,0,0,
 	       0,0,0,0,0,2,0,0,0,0,
@@ -57,7 +55,10 @@ Mapa::Mapa(const char* file): ANCHO(10), ALTO(10){ // Cambiar!!
 inline int Mapa::getAncho(){ return ANCHO; }
 inline int Mapa::getAlto(){ return ALTO; }
 
-Terreno* Mapa::operator[](int pos){
+/*Terreno* Mapa::operator[](int pos){
+  return mapa[pos];
+  }*/
+Terreno* Mapa::getMapa(unsigned int pos){
   return mapa[pos];
 }
 

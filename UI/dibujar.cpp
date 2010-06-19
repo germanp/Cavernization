@@ -3,7 +3,7 @@
  * @author Germán Podestá
  * @date   Sun Jun 13 12:03:40 2010
  * 
- * @brief  Este archivo tiene las rutinaas para dibujar el juego en la pantalla
+ * @brief  Este archivo tiene las rutinas para dibujar el juego en la pantalla
  * 
  * 
  */
@@ -14,6 +14,7 @@
 #include <SDL/SDL_image.h>
 #include <mapa.h>
 #include "dibujar.h"
+#include "terreno.h"
 
 #define  REFREZCO 1000/50 // Tiempo de refrezco 50 veces por segundo
 
@@ -25,11 +26,14 @@ int thr_Dibujar(void* v){
 
 inline void Dibujar(SDL_Surface* screen){
   
+  
   while (1){
-    ///////////////////////////////////////
-    // TODO: Implementar el dibujamiento //
-    ///////////////////////////////////////
-    printf("Dibujando...\n");
-    SDL_Delay(REFREZCO);
+    Mapa Map=Mapa::getInstance();
+    int i;
+    for (i=0; i<100 ; i++ ){
+      Terreno* t=Map[i];
+      printf("Imprimir tile tipo %d...\n",t->getTipo());
+      SDL_Delay(REFREZCO);
+    }
   }
 }
