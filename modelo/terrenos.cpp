@@ -12,17 +12,17 @@
 
 #include "terreno.h"
 
-class Tierra:Terreno{
+class Pasto:public Terreno{
   inline int getTipo(){return 0;}
   inline bool esPisable(){return true;}
 };
 
-class Desierto: Terreno{
+class PastoPiedra:public Terreno{
   inline int getTipo(){return 1;}
   inline bool esPisable(){return true;}
 };
 
-class Agua: Terreno{
+class PastoPiedra2:public Terreno{
   inline int getTipo(){return 2;}
   inline bool esPisable(){return false;}
 };

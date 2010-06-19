@@ -17,7 +17,7 @@ class Mapa {
  private:
   int ANCHO;
   int ALTO;
-  Terreno* mapa[];
+  Terreno** mapa;
   static Mapa* _instance;
   /** 
    * Carga un mapa en un vector de tipo Terreno.

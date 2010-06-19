@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "mapa.h"
+#include "terrenos.cpp"
 
 Mapa* Mapa::_instance=NULL;
 
@@ -24,10 +25,33 @@ Mapa* Mapa::abrirMapa(const char* file){
 
 inline Mapa* Mapa::getInstance(){ return _instance; }
 
-Mapa::Mapa(const char* file){ // Cambiar!!
-  ANCHO=10;
-  ALTO=10;
-// TODO: Implementar la carga del mapa
+Mapa::Mapa(const char* file): ANCHO(10), ALTO(10){ // Cambiar!!
+  int m[100]= {0,0,0,0,0,0,0,0,0,0,
+	       0,0,0,0,0,2,0,0,0,0,
+	       0,0,1,0,0,0,0,1,0,0,
+	       2,0,0,0,0,0,0,0,0,0,
+	       0,0,0,0,1,0,0,0,2,0,
+	       0,0,0,0,0,0,0,0,0,0,
+	       0,2,0,0,0,0,0,0,0,0,
+	       0,0,0,0,0,0,0,1,0,0,
+	       0,0,1,0,0,0,0,0,0,0,
+	       0,0,0,0,0,0,0,0,0,0};
+
+  int i, length=ANCHO*ALTO;
+  mapa=new Terreno *[100];
+  for (i=0;i<length;i++){
+    switch ( m[i] ){
+    case 0:
+      mapa[i]=new Pasto();
+      break;
+    case 1:
+      mapa[i]=new PastoPiedra();
+      break;
+    case 2:
+      mapa[i]=new PastoPiedra2();
+      break;
+    }
+  }
 }
 
 inline int Mapa::getAncho(){ return ANCHO; }
