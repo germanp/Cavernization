@@ -15,15 +15,15 @@
 int main (){
      SDL_Thread* thr_gui;
      SDL_Thread* thr_input;
-     Mapa* Map; /* Todo los objetos del UML se guardan en esta matríz */
+     Mapa* Map=Mapa::abrirMapa("mentira.map"); /* Todo los objetos del UML se guardan en esta matríz */
      SDL_Surface* screen;
   
      screen=Iniciar_Video(640,480,16,"Cavernization",SDL_SWSURFACE);
-     Map=Mapa::abrirMapa("mentira.map");
      thr_input=SDL_CreateThread(thr_Input,(void*)screen);
      thr_gui=SDL_CreateThread(thr_Dibujar,(void*)screen);
      SDL_Delay(1000);
-     //  delete Map;
+     SDL_KillThread(thr_input);
+     SDL_KillThread(thr_gui);
      return 1;
 }
 

@@ -16,7 +16,7 @@
 #include "dibujar.h"
 #include "terreno.h"
 
-#define  REFREZCO 1000/50 // Tiempo de refrezco 50 veces por segundo
+#define  FREC_PINTADO 1000/50 // Tiempo de refrezco 50 veces por segundo
 
 int thr_Dibujar(void* v){
   SDL_Surface* s=(SDL_Surface*)v;
@@ -28,12 +28,19 @@ inline void Dibujar(SDL_Surface* screen){
   
   
   while (1){
-    Mapa Map=Mapa::getInstance();
+    Mapa Map=*Mapa::getInstance();
     int i;
     for (i=0; i<100 ; i++ ){
-      Terreno* t=Map[i];
-      printf("Imprimir tile tipo %d...\n",t->getTipo());
-      SDL_Delay(REFREZCO);
+      printf("Imprimir tile tipo %d...\n",Map[i]->getTipo());
+      SDL_Delay(FREC_PINTADO);
     }
   }
+}
+
+SDL_Surface** Cargar_Tiles(){
+  SDL_Surface* s[]={
+    IMG_Load("tiles/pasto0.png"),
+    IMG_Load("tiles/pasto1.png"),
+    IMG_Load("tiles/pasto2.png")
+  };
 }

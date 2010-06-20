@@ -15,7 +15,7 @@
 #include <mapa.h>
 #include "input.h"
 
-#define  REFREZCO 1000/50 // Tiempo de refrezco 50 veces por segundo
+#define  FREC_INPUT 100 // Tiempo de refrezco 10 veces por segundo
 
 int thr_Input(void* v){
   SDL_Surface* s=(SDL_Surface*)v;
@@ -30,6 +30,6 @@ inline void Input(SDL_Surface* screen){
     // TODO: Implementar el dibujamiento //
     ///////////////////////////////////////
     printf("Esperando entrada...\n");
-    SDL_Delay(REFREZCO);
+    SDL_Delay(FREC_INPUT);
   }
 }

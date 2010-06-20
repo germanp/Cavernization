@@ -34,6 +34,12 @@ int thr_Dibujar(void* v);
  */
 inline void Dibujar(SDL_Surface* screen);
 
-
+/** 
+ * Carga los tiles en los SDL_surfaces
+ * 
+ * 
+ * @return Vector de SDL_Surface* con los tiles cargados
+ */
+SDL_Surface** Cargar_Tiles();
 
 #endif // DIBUJAR_H

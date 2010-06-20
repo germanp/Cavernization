@@ -15,8 +15,8 @@
 
 class Mapa {
  private:
-  int ANCHO;
-  int ALTO;
+  const int ANCHO;
+  const int ALTO;
   Terreno** mapa;
   static Mapa* _instance;
   /** 
@@ -36,7 +36,7 @@ class Mapa {
    * @return 
    */
   //
-  inline static Mapa getInstance(){ return *_instance; } // ¿?
+  inline static Mapa* getInstance(){ return _instance; } // ¿?
   /** 
    * Carga el mapa de un archivo. Se debe usar la primera vez. Después
    * se usa getInstance();
@@ -54,12 +54,12 @@ class Mapa {
    * @return La posición solicitada en la matríz.
    */
   Terreno* operator[](unsigned int pos){return mapa[pos];};
-  Terreno* getMapa(unsigned int pos);
-/** 
- * Libera la memoria ocupada por el mapa que es toda
- * la información del juego.
- *
- */
+
+  /** 
+   * Libera la memoria ocupada por el mapa que es toda
+   * la información del juego.
+   *
+   */
   ~Mapa();
 };
 
