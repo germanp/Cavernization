@@ -51,9 +51,6 @@ Mapa::Mapa(const char* file): ANCHO(10), ALTO(10){ // Cambiar!!
   }
 }
 
-inline int Mapa::getAncho(){ return ANCHO; }
-inline int Mapa::getAlto(){ return ALTO; }
-
 Mapa::~Mapa(){
   printf("Borrando mapa.\n");
   delete[] mapa;

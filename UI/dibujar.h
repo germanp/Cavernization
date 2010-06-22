@@ -15,6 +15,8 @@
 
 #include <SDL.h>
 
+#define FREC_PINTADO 1000/50 // Tiempo de refrezco 50 veces por segundo
+
 /** 
  * Es un wrapper para que quede bien el prototipo de la función Dibujar
  * 
@@ -35,11 +37,19 @@ int thr_Dibujar(void* v);
 inline void Dibujar(SDL_Surface* screen);
 
 /** 
- * Carga los tiles en los SDL_surfaces
+ * Carga los tiles en un array SDL_Surfaces. El vector es alocado con
+ * malloc() y debe ser liberado con free().
  * 
  * 
  * @return Vector de SDL_Surface* con los tiles cargados
  */
 SDL_Surface** Cargar_Tiles();
+
+/** 
+ * Libera un array de SDL_Surfaces
+ * 
+ * @param s Array de surfaces a liberar.
+ */
+void Liberar_Tiles(SDL_Surface** s);
 
 #endif // DIBUJAR_H

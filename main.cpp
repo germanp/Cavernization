@@ -1,3 +1,17 @@
+/**
+ * @file   main.cpp
+ * @author german <german@german-desktop>
+ * @date   Tue Jun 22 00:16:24 2010
+ * 
+ * @brief  Es el hilo principal del juego, llama a los hilos para
+ * dibujar y controlar la entrada del usuario.
+ *
+ * @section TODO
+ * - Agregar un sistema para que el thread input() pueda comunicarse
+ * con el de dibujar() para que se interrumpa y libere la memoria que usó.
+ */
+
+
 #include <SDL_thread.h>
 #include <SDL.h>
 #include "UI/input.h"
@@ -18,7 +32,7 @@ int main (){
      Mapa* Map=Mapa::abrirMapa("mentira.map"); /* Todo los objetos del UML se guardan en esta matríz */
      SDL_Surface* screen;
   
-     screen=Iniciar_Video(640,480,16,"Cavernization",SDL_SWSURFACE);
+     screen=Iniciar_Video(640,480,16,"Cavernization",SDL_HWSURFACE);
      thr_input=SDL_CreateThread(thr_Input,(void*)screen);
      thr_gui=SDL_CreateThread(thr_Dibujar,(void*)screen);
      SDL_Delay(1000);

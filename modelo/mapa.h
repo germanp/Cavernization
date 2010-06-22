@@ -28,8 +28,9 @@ class Mapa {
   Mapa(const char*);
 
  public:
-  inline int getAncho();
-  inline int getAlto();
+  inline int getAncho(){ return ANCHO; }
+  inline int getAlto(){ return ALTO; }
+
   /** 
    * Devuelve la instancia del Mapa del juego. Es un Singleton.
    * 

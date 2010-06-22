@@ -5,7 +5,7 @@
 # EDE is the Emacs Development Environment.
 # http://cedet.sourceforge.net/ede.shtml
 # 
-LDFLAGS=-lSDL
+LDFLAGS=-lSDL -lSDL_image
 CFLAGS=-I/usr/include/SDL -Imodelo -D_GNU_SOURCE=1 -D_REENTRANT
 
 top=
@@ -19,7 +19,7 @@ CXX_DEPENDENCIES=-Wp,-MD,.deps/$(*F).P
 CXX_LINK=$(CXX) $(CFLAGS) $(LDFLAGS) -L. -o $@
 VERSION=1.0
 DISTDIR=$(top)cavernization-$(VERSION)
-top_builddir = ..
+top_builddir = 
 
 DEP_FILES=.deps/main.P .deps/terrenos.P .deps/input.P .deps/mapa.P .deps/terrenos.P .deps/dibujar.P .deps/casa.P .deps/jugador.P .deps/arbol.P .deps/personaje.P .deps/terreno.P .deps/dibujar.P .deps/input.P .deps/objetomapa.P .deps/casa.P .deps/jugador.P .deps/objetoconduenio.P .deps/personaje.P .deps/monumento.P .deps/fiel.P .deps/edificio.P .deps/main.P
 
@@ -27,6 +27,9 @@ all: cavernization
 
 DEPS_MAGIC := $(shell mkdir .deps > /dev/null 2>&1 || :)
 -include $(DEP_FILES)
+
+: 
+	
 
 %.o: %.cpp
 	@echo '$(CXX_COMPILE) -c $<'; \
