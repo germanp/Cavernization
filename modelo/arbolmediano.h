@@ -12,8 +12,10 @@
  *  <todo>
  */
 
+#include "arbol.h"
+
 class ArbolMediano: Arbol{
       
         
-}
+};
 #endif // ARBOL_MEDIANO_H

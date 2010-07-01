@@ -13,6 +13,8 @@
  *  <>
  */
 
+#include "personaje.h"
+
 class Chaman: Personaje{
 
       public:
@@ -21,11 +23,11 @@ class Chaman: Personaje{
               *
               * @param Hechizo h, int x, int y
               */
-             void lanzarHechizo(Hechizo h, int x, int y);
+  //             void lanzarHechizo(Hechizo h, int x, int y);
              /**
-              * Revive a un personaje.
+              * Braian es un gorila
               */
              void revivir();   
         
-}
+};
 #endif // CHAMAN_H

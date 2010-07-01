@@ -1,5 +1,3 @@
-#include "cuartel.h"
-
 /**
  * @file   cuartel.cpp
  * @author braian <divided-by_joy@hotmail.com>
@@ -10,8 +8,11 @@
  * @section TODO
  *  <>
  */
- 
-Guerrero Cuartel::entrenar(){
+
+#include "cuartel.h"
+#include "fiel.h"
+
+// Guerrero Cuartel::entrenar(Fiel f){
 
 
-} 
+// } 

@@ -12,8 +12,10 @@
  *  <todo>
  */
 
+#include "arbol.h"
+
 class ArbolGrande: Arbol{
       
         
-}
+};
 #endif // ARBOL_GRANDE_H

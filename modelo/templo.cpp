@@ -11,7 +11,7 @@
  *  <>
  */
  
-Predicador Templo::entrenar(){
+// Predicador Templo::entrenar(){
 
 
-} 
+// } 

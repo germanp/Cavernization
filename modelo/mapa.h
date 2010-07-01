@@ -13,20 +13,27 @@
 
 #include "terreno.h"
 
+
 class Mapa {
  private:
   const int ANCHO;
   const int ALTO;
   Terreno** mapa;
-  static Mapa* _instance;
+
   /** 
    * Carga un mapa en un vector de tipo Terreno.
    *
    * @param file Ruta del archivo de datos para cargar 
    *		(queda pendiente)
    */
-  Mapa(const char*);
 
+  // Código del Singletton
+  Mapa(const char*);
+  ~Mapa();
+  Mapa(const Mapa&);
+  Mapa &operator=(const Mapa&);
+  static Mapa* _instance;
+  //
  public:
   inline int getAncho(){ return ANCHO; }
   inline int getAlto(){ return ALTO; }
@@ -36,8 +43,8 @@ class Mapa {
    * 
    * @return 
    */
-  //
-  inline static Mapa* getInstance(){ return _instance; } // ¿?
+  static Mapa* getInstance(){ return _instance; } // ¿?
+
   /** 
    * Carga el mapa de un archivo. Se debe usar la primera vez. Después
    * se usa getInstance();
@@ -46,22 +53,37 @@ class Mapa {
    * 
    * @return 
    */
-  static Mapa* abrirMapa(const char* file);
+  static void abrirMapa(const char* file){
+    //delete _instance;
+    //if ( !_instance ) {
+    delete _instance;
+    _instance=new Mapa("prueba");
+      //}
+  }
   /** 
-   * Operador [] sobrecargado para recorrer la matríz de Terreno
+   * Devuelve la posición del mapa especificada por x e y.
+   * Esta es la versión para usar cuando guardamos el mapa en un
+   * puntero. Ej: 
+   *	Mapa* m=Mapa::getInstance();
+   *	m->_(x,y);
    * 
-   * @param pos Posición del vector Terreno a devolver
+   * @param x Coord. x del mapa
+   * @param y Coord. y del mapa
    * 
-   * @return La posición solicitada en la matríz.
-   */
-  Terreno* operator[](unsigned int pos){return mapa[pos];};
-
+   * @return 
+   */  
+  Terreno* _(unsigned int x,unsigned int y){ return mapa[y*ANCHO+x]; }
   /** 
-   * Libera la memoria ocupada por el mapa que es toda
-   * la información del juego.
+   * Devuelve el Terreno correspondiente a la posición del mapa dada
+   * por x e y. Esta es la versión de paréntesis sobrecargada. Ej:
+   *	Mapa& m=*Mapa::getInstance();
+   *	m(x,y);
    *
+   * @param x Coord. x del mapa
+   * @param y Coord. y del mapa
+   * @return 
    */
-  ~Mapa();
+  Terreno* operator() (unsigned int x, unsigned int y){ return mapa[y*ANCHO+x]; }
 };
 
 #endif // MAPA_H

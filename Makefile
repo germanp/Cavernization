@@ -11,8 +11,8 @@ WINDRES=echo Que la chupe:
 # Project: cavernization
 # Makefile created by Dev-C++ 4.9.9.2
 
-OBJ  = main.o UI/input.o UI/dibujar.o modelo/terrenos.o modelo/agua.o modelo/arbol.o modelo/arbolchico.o modelo/arbolgrande.o modelo/arbolmediano.o modelo/casa.o modelo/chaman.o modelo/cuartel.o modelo/fiel.o modelo/guerrero.o modelo/guerrerofuego.o modelo/jugador.o modelo/jugadorhumano.o modelo/jugadoria.o modelo/mapa.o modelo/monumento.o modelo/personaje.o modelo/plantilla.o modelo/predicador.o modelo/tablero.o modelo/templo.o $(RES)
-LINKOBJ  = main.o UI/input.o UI/dibujar.o modelo/terrenos.o modelo/agua.o modelo/arbol.o modelo/arbolchico.o modelo/arbolgrande.o modelo/arbolmediano.o modelo/casa.o modelo/chaman.o modelo/cuartel.o modelo/fiel.o modelo/guerrero.o modelo/guerrerofuego.o modelo/jugador.o modelo/jugadorhumano.o modelo/jugadoria.o modelo/mapa.o modelo/monumento.o modelo/personaje.o modelo/plantilla.o modelo/predicador.o modelo/tablero.o modelo/templo.o $(RES)
+OBJ  = main.o UI/input.o UI/dibujar.o modelo/terrenos.o modelo/arbol.o modelo/arbolchico.o modelo/arbolgrande.o modelo/arbolmediano.o modelo/casa.o modelo/chaman.o modelo/cuartel.o modelo/fiel.o modelo/guerrero.o modelo/guerrerofuego.o modelo/jugador.o modelo/jugadorhumano.o modelo/jugadoria.o modelo/mapa.o modelo/monumento.o modelo/personaje.o modelo/predicador.o modelo/templo.o $(RES)
+LINKOBJ  = main.o UI/input.o UI/dibujar.o modelo/terrenos.o modelo/arbol.o modelo/arbolchico.o modelo/arbolgrande.o modelo/arbolmediano.o modelo/casa.o modelo/chaman.o modelo/cuartel.o modelo/fiel.o modelo/guerrero.o modelo/guerrerofuego.o modelo/jugador.o modelo/jugadorhumano.o modelo/jugadoria.o modelo/mapa.o modelo/monumento.o modelo/personaje.o modelo/predicador.o modelo/templo.o $(RES)
 RM = rm -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -37,9 +37,6 @@ UI/dibujar.o: UI/dibujar.cpp
 
 modelo/terrenos.o: modelo/terrenos.cpp
 	$(CPP) -c modelo/terrenos.cpp -o modelo/terrenos.o $(CXXFLAGS)
-
-modelo/agua.o: modelo/agua.cpp
-	$(CPP) -c modelo/agua.cpp -o modelo/agua.o $(CXXFLAGS)
 
 modelo/arbol.o: modelo/arbol.cpp
 	$(CPP) -c modelo/arbol.cpp -o modelo/arbol.o $(CXXFLAGS)
@@ -89,14 +86,8 @@ modelo/monumento.o: modelo/monumento.cpp
 modelo/personaje.o: modelo/personaje.cpp
 	$(CPP) -c modelo/personaje.cpp -o modelo/personaje.o $(CXXFLAGS)
 
-modelo/plantilla.o: modelo/plantilla.cpp
-	$(CPP) -c modelo/plantilla.cpp -o modelo/plantilla.o $(CXXFLAGS)
-
 modelo/predicador.o: modelo/predicador.cpp
 	$(CPP) -c modelo/predicador.cpp -o modelo/predicador.o $(CXXFLAGS)
-
-modelo/tablero.o: modelo/tablero.cpp
-	$(CPP) -c modelo/tablero.cpp -o modelo/tablero.o $(CXXFLAGS)
 
 modelo/templo.o: modelo/templo.cpp
 	$(CPP) -c modelo/templo.cpp -o modelo/templo.o $(CXXFLAGS)

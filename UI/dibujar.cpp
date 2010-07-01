@@ -25,17 +25,16 @@ int thr_Dibujar(void* v){
 }
 
 inline void Dibujar(SDL_Surface* screen){
-  Mapa Map=*Mapa::getInstance();  
+  Mapa& mapa=*Mapa::getInstance();
   SDL_Surface** tiles=Cargar_Tiles();
   SDL_Rect pos;
-  int i,j,t;
+  int y,x;
   while (1){
-    for (i=0 ; i<Map.getAlto(); i++){
-      for (j=0 ; j<Map.getAncho(); j++){
-  	t=i*Map.getAlto()+j;
-  	pos.x=j*64;
-  	pos.y=(i-1)*64;
-  	SDL_BlitSurface(tiles[Map[t]->getTipo()],NULL,screen,&pos);
+    for (y=0 ; y<mapa.getAlto(); y++){
+      for (x=0 ; x<mapa.getAncho(); x++){
+  	pos.x=x*64;
+  	pos.y=(y-1)*64;
+  	SDL_BlitSurface(tiles[mapa(x,y)->getTipo()],NULL,screen,&pos);
       }
     }
     SDL_Flip(screen);

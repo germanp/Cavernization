@@ -12,7 +12,9 @@
  *  <>
  */
 
-class Guerrero: Personaje{
+#include "personaje.h"
 
-}
+/* class Guerrero: public Personaje{ */
+
+/* }; */
 #endif // GUERRERO_H

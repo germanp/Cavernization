@@ -12,14 +12,14 @@
  *  <>
  */
 
-class Predicador: Personaje{
+#include "personaje.h"
 
-      public:
-             /**
-              * Predica a los fieles
-              */
-             void predicar();
-    
-        
-}
+class Predicador: public Personaje{
+  
+ public:
+  /**
+   * Predica a los fieles
+   */
+  void predicar();
+};
 #endif // PREDICADOR_H

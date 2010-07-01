@@ -15,5 +15,5 @@
 class JugadorHumano{
       
       
-}
+};
 #endif // JUGADOR_HUMANO_H

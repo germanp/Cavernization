@@ -15,7 +15,7 @@
 
 #include "objetoconduenio.h"
 
-class Edificio:ObjetoConDuenio {
+class Edificio:public ObjetoConDuenio {
  protected:
   int vida;
  public:

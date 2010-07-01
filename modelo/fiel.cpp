@@ -11,8 +11,8 @@
 
 #include "fiel.h"
  
-void Fiel::construir(Edificio e){    
-} 
+// void Fiel::construir(Edificio e){    
+// } 
 
-void Fiel::talar(Arbol a){
-} 
+// void Fiel::talar(Arbol a){
+// } 

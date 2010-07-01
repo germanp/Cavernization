@@ -16,17 +16,17 @@
 #include "arbol.h"
 #include "edificio.h"
 
-class Fiel:Personaje{
- public:
-  /**
-   * Ordena a un fiel a construir algun edificio
-   * @param Edificio e
-   */
-  void construir(Edificio e);
-  /**
-   * Ordena talar un arbol para construir algun tipo de edificio
-   * @param Arbol a
-   */
-  void talar(Arbol a);
-};
+/* class Fiel:public Personaje{ */
+/*  public: */
+/*   /\** */
+/*    * Ordena a un fiel a construir algun edificio */
+/*    * @param Edificio e */
+/*    *\/ */
+/*   void construir(Edificio e); */
+/*   /\** */
+/*    * Ordena talar un arbol para construir algun tipo de edificio */
+/*    * @param Arbol a */
+/*    *\/ */
+/*   void talar(Arbol a); */
+/* }; */
 #endif // FIEL_H

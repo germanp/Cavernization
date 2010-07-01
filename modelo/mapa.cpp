@@ -15,13 +15,6 @@
 
 Mapa* Mapa::_instance=NULL;
 
-Mapa* Mapa::abrirMapa(const char* file){
-  if (!_instance){
-    _instance=new Mapa(file);
-  }
-  return _instance;
-}
-
 Mapa::Mapa(const char* file): ANCHO(10), ALTO(10){ // Cambiar!!
   int m[100]= {0,0,0,0,0,0,0,0,0,0,
 	       0,0,0,0,0,2,0,0,0,0,

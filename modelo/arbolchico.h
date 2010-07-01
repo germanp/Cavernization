@@ -12,8 +12,10 @@
  *  <todo>
  */
 
+#include "arbol.h"
+
 class ArbolChico: Arbol{
       
         
-}
+};
 #endif // ARBOL_CHICO_H

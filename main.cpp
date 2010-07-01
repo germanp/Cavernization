@@ -26,10 +26,11 @@
  *
  * @return
  */
+
 int main (){
      SDL_Thread* thr_gui;
      SDL_Thread* thr_input;
-     Mapa* Map=Mapa::abrirMapa("mentira.map"); /* Todo los objetos del UML se guardan en esta matríz */
+     Mapa::abrirMapa("mentira.map"); /* Todo los objetos del UML se guardan en esta matríz */
      SDL_Surface* screen;
   
      screen=Iniciar_Video(640,480,16,"Cavernization",SDL_HWSURFACE);

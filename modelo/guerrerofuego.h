@@ -13,20 +13,20 @@
  *  <>
  */
 
-class GuerreroFuego: Personaje{
+/* class GuerreroFuego: Personaje{ */
 
-      public:
-             /**
-              * Lanza fuego contra un personaje
-              * @param Personaje p
-              */
-             void lanzarFuego(Personaje p);
-             /**
-              * Lanza fuego contra un edificio
-              * @param Edificio e
-              */
-             void lanzarFuego(Edificio e);
+/*       public: */
+/*              /\** */
+/*               * Lanza fuego contra un personaje */
+/*               * @param Personaje p */
+/*               *\/ */
+/*              void lanzarFuego(Personaje p); */
+/*              /\** */
+/*               * Lanza fuego contra un edificio */
+/*               * @param Edificio e */
+/*               *\/ */
+/*              void lanzarFuego(Edificio e); */
     
         
-}
+/* }; */
 #endif // GUERRERO_FUEGO_H

@@ -13,14 +13,17 @@
  *  <>
  */
 
-class Cuartel: Edificio{
+#include "guerrero.h"
+#include "fiel.h"
 
-      public:
-             /**
-              * Se entrena a un fiel para convertirlo en un guerero.
-              *
-              * @param Fiel f
-              */ 
-             Guerrero entrenar(Fiel f);
-}
+/* class Cuartel:public Edificio{ */
+
+/*       public: */
+/*              /\** */
+/*               * Se entrena a un fiel para convertirlo en un guerero. */
+/*               * */
+/*               * @param Fiel f */
+/*               *\/  */
+/*              Guerrero entrenar(Fiel f); */
+/* }; */
 #endif // CUARTEL_H

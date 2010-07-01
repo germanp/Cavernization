@@ -11,10 +11,10 @@
  *  <>
  */
  
-void Chaman::lanzarHechizo(Hechizo h, int x, int y){
+// void Chaman::lanzarHechizo(Hechizo h, int x, int y){
      
     
-} 
+// } 
 
 void Chaman::revivir(){
      

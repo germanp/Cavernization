@@ -15,5 +15,5 @@
 class JugadorIA{
 
 
-}
+};
 #endif // JUGADOR_IA_H

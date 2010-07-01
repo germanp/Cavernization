@@ -13,9 +13,12 @@
  *  <>
  */
 
-class Templo: Edificio{
+#include "edificio.h"
+#include "predicador.h"
+#include "fiel.h"
+class Templo: public Edificio{
 
       public:
-             Predicador entrenar(Fiel f);
-}
+  //             Predicador entrenar(Fiel f);
+};
 #endif // TEMPLO_H
