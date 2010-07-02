@@ -27,7 +27,7 @@
  * @return
  */
 
-int main (){
+int main (int argc, char* argv[]){
      SDL_Thread* thr_vista;
      SDL_Thread* thr_entrada;
      Mapa::abrirMapa("mentira.map"); /* Todo los objetos del UML se guardan en esta matríz */

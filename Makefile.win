@@ -5,14 +5,14 @@ CPP  = g++.exe
 CC   = gcc.exe
 WINDRES = windres.exe
 RES  = cavernization_private.res
-OBJ  = main.o UI/input.o UI/dibujar.o modelo/terrenos.o modelo/agua.o modelo/arbol.o modelo/arbolchico.o modelo/arbolgrande.o modelo/arbolmediano.o modelo/casa.o modelo/chaman.o modelo/cuartel.o modelo/fiel.o modelo/guerrero.o modelo/guerrerofuego.o modelo/jugador.o modelo/jugadorhumano.o modelo/jugadoria.o modelo/mapa.o modelo/monumento.o modelo/personaje.o modelo/plantilla.o modelo/predicador.o modelo/tablero.o modelo/templo.o $(RES)
-LINKOBJ  = main.o UI/input.o UI/dibujar.o modelo/terrenos.o modelo/agua.o modelo/arbol.o modelo/arbolchico.o modelo/arbolgrande.o modelo/arbolmediano.o modelo/casa.o modelo/chaman.o modelo/cuartel.o modelo/fiel.o modelo/guerrero.o modelo/guerrerofuego.o modelo/jugador.o modelo/jugadorhumano.o modelo/jugadoria.o modelo/mapa.o modelo/monumento.o modelo/personaje.o modelo/plantilla.o modelo/predicador.o modelo/tablero.o modelo/templo.o $(RES)
-LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lmingw32 -lSDLmain -lSDL -lSDL_image -liberty  
+OBJ  = main.o entrada/entrada.o logica/arbol.o logica/arbolchico.o logica/arbolgrande.o logica/arbolmediano.o logica/casa.o logica/chaman.o logica/cuartel.o logica/fiel.o logica/guerrero.o logica/guerrerofuego.o logica/jugador.o logica/jugadorhumano.o logica/jugadoria.o logica/mapa.o logica/monumento.o logica/personaje.o logica/predicador.o logica/templo.o logica/terrenos.o vista/vista.o $(RES)
+LINKOBJ  = main.o entrada/entrada.o logica/arbol.o logica/arbolchico.o logica/arbolgrande.o logica/arbolmediano.o logica/casa.o logica/chaman.o logica/cuartel.o logica/fiel.o logica/guerrero.o logica/guerrerofuego.o logica/jugador.o logica/jugadorhumano.o logica/jugadoria.o logica/mapa.o logica/monumento.o logica/personaje.o logica/predicador.o logica/templo.o logica/terrenos.o vista/vista.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lmingw32 -lSDL_Image -lSDLmain -lSDL -liberty  
 INCS =  -I"C:/Dev-Cpp/include" 
 CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
 BIN  = cavernization.exe
-CXXFLAGS = $(CXXINCS) -I"C:\Dev-Cpp\\include\SDL" -Dmain=SDL_main -Imodelo  
-CFLAGS = $(INCS) -I"C:\Dev-Cpp\\include\SDL" -Dmain=SDL_main -Imodelo  
+CXXFLAGS = $(CXXINCS) -I"C:\Dev-Cpp\\include\SDL" -Dmain=SDL_main -I"logica" -I"vista" -I"entrada"  
+CFLAGS = $(INCS) -I"C:\Dev-Cpp\\include\SDL" -Dmain=SDL_main  
 RM = rm -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -29,77 +29,68 @@ $(BIN): $(OBJ)
 main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
 
-UI/input.o: UI/input.cpp
-	$(CPP) -c UI/input.cpp -o UI/input.o $(CXXFLAGS)
+entrada/entrada.o: entrada/entrada.cpp
+	$(CPP) -c entrada/entrada.cpp -o entrada/entrada.o $(CXXFLAGS)
 
-UI/dibujar.o: UI/dibujar.cpp
-	$(CPP) -c UI/dibujar.cpp -o UI/dibujar.o $(CXXFLAGS)
+logica/arbol.o: logica/arbol.cpp
+	$(CPP) -c logica/arbol.cpp -o logica/arbol.o $(CXXFLAGS)
 
-modelo/terrenos.o: modelo/terrenos.cpp
-	$(CPP) -c modelo/terrenos.cpp -o modelo/terrenos.o $(CXXFLAGS)
+logica/arbolchico.o: logica/arbolchico.cpp
+	$(CPP) -c logica/arbolchico.cpp -o logica/arbolchico.o $(CXXFLAGS)
 
-modelo/agua.o: modelo/agua.cpp
-	$(CPP) -c modelo/agua.cpp -o modelo/agua.o $(CXXFLAGS)
+logica/arbolgrande.o: logica/arbolgrande.cpp
+	$(CPP) -c logica/arbolgrande.cpp -o logica/arbolgrande.o $(CXXFLAGS)
 
-modelo/arbol.o: modelo/arbol.cpp
-	$(CPP) -c modelo/arbol.cpp -o modelo/arbol.o $(CXXFLAGS)
+logica/arbolmediano.o: logica/arbolmediano.cpp
+	$(CPP) -c logica/arbolmediano.cpp -o logica/arbolmediano.o $(CXXFLAGS)
 
-modelo/arbolchico.o: modelo/arbolchico.cpp
-	$(CPP) -c modelo/arbolchico.cpp -o modelo/arbolchico.o $(CXXFLAGS)
+logica/casa.o: logica/casa.cpp
+	$(CPP) -c logica/casa.cpp -o logica/casa.o $(CXXFLAGS)
 
-modelo/arbolgrande.o: modelo/arbolgrande.cpp
-	$(CPP) -c modelo/arbolgrande.cpp -o modelo/arbolgrande.o $(CXXFLAGS)
+logica/chaman.o: logica/chaman.cpp
+	$(CPP) -c logica/chaman.cpp -o logica/chaman.o $(CXXFLAGS)
 
-modelo/arbolmediano.o: modelo/arbolmediano.cpp
-	$(CPP) -c modelo/arbolmediano.cpp -o modelo/arbolmediano.o $(CXXFLAGS)
+logica/cuartel.o: logica/cuartel.cpp
+	$(CPP) -c logica/cuartel.cpp -o logica/cuartel.o $(CXXFLAGS)
 
-modelo/casa.o: modelo/casa.cpp
-	$(CPP) -c modelo/casa.cpp -o modelo/casa.o $(CXXFLAGS)
+logica/fiel.o: logica/fiel.cpp
+	$(CPP) -c logica/fiel.cpp -o logica/fiel.o $(CXXFLAGS)
 
-modelo/chaman.o: modelo/chaman.cpp
-	$(CPP) -c modelo/chaman.cpp -o modelo/chaman.o $(CXXFLAGS)
+logica/guerrero.o: logica/guerrero.cpp
+	$(CPP) -c logica/guerrero.cpp -o logica/guerrero.o $(CXXFLAGS)
 
-modelo/cuartel.o: modelo/cuartel.cpp
-	$(CPP) -c modelo/cuartel.cpp -o modelo/cuartel.o $(CXXFLAGS)
+logica/guerrerofuego.o: logica/guerrerofuego.cpp
+	$(CPP) -c logica/guerrerofuego.cpp -o logica/guerrerofuego.o $(CXXFLAGS)
 
-modelo/fiel.o: modelo/fiel.cpp
-	$(CPP) -c modelo/fiel.cpp -o modelo/fiel.o $(CXXFLAGS)
+logica/jugador.o: logica/jugador.cpp
+	$(CPP) -c logica/jugador.cpp -o logica/jugador.o $(CXXFLAGS)
 
-modelo/guerrero.o: modelo/guerrero.cpp
-	$(CPP) -c modelo/guerrero.cpp -o modelo/guerrero.o $(CXXFLAGS)
+logica/jugadorhumano.o: logica/jugadorhumano.cpp
+	$(CPP) -c logica/jugadorhumano.cpp -o logica/jugadorhumano.o $(CXXFLAGS)
 
-modelo/guerrerofuego.o: modelo/guerrerofuego.cpp
-	$(CPP) -c modelo/guerrerofuego.cpp -o modelo/guerrerofuego.o $(CXXFLAGS)
+logica/jugadoria.o: logica/jugadoria.cpp
+	$(CPP) -c logica/jugadoria.cpp -o logica/jugadoria.o $(CXXFLAGS)
 
-modelo/jugador.o: modelo/jugador.cpp
-	$(CPP) -c modelo/jugador.cpp -o modelo/jugador.o $(CXXFLAGS)
+logica/mapa.o: logica/mapa.cpp
+	$(CPP) -c logica/mapa.cpp -o logica/mapa.o $(CXXFLAGS)
 
-modelo/jugadorhumano.o: modelo/jugadorhumano.cpp
-	$(CPP) -c modelo/jugadorhumano.cpp -o modelo/jugadorhumano.o $(CXXFLAGS)
+logica/monumento.o: logica/monumento.cpp
+	$(CPP) -c logica/monumento.cpp -o logica/monumento.o $(CXXFLAGS)
 
-modelo/jugadoria.o: modelo/jugadoria.cpp
-	$(CPP) -c modelo/jugadoria.cpp -o modelo/jugadoria.o $(CXXFLAGS)
+logica/personaje.o: logica/personaje.cpp
+	$(CPP) -c logica/personaje.cpp -o logica/personaje.o $(CXXFLAGS)
 
-modelo/mapa.o: modelo/mapa.cpp
-	$(CPP) -c modelo/mapa.cpp -o modelo/mapa.o $(CXXFLAGS)
+logica/predicador.o: logica/predicador.cpp
+	$(CPP) -c logica/predicador.cpp -o logica/predicador.o $(CXXFLAGS)
 
-modelo/monumento.o: modelo/monumento.cpp
-	$(CPP) -c modelo/monumento.cpp -o modelo/monumento.o $(CXXFLAGS)
+logica/templo.o: logica/templo.cpp
+	$(CPP) -c logica/templo.cpp -o logica/templo.o $(CXXFLAGS)
 
-modelo/personaje.o: modelo/personaje.cpp
-	$(CPP) -c modelo/personaje.cpp -o modelo/personaje.o $(CXXFLAGS)
+logica/terrenos.o: logica/terrenos.cpp
+	$(CPP) -c logica/terrenos.cpp -o logica/terrenos.o $(CXXFLAGS)
 
-modelo/plantilla.o: modelo/plantilla.cpp
-	$(CPP) -c modelo/plantilla.cpp -o modelo/plantilla.o $(CXXFLAGS)
-
-modelo/predicador.o: modelo/predicador.cpp
-	$(CPP) -c modelo/predicador.cpp -o modelo/predicador.o $(CXXFLAGS)
-
-modelo/tablero.o: modelo/tablero.cpp
-	$(CPP) -c modelo/tablero.cpp -o modelo/tablero.o $(CXXFLAGS)
-
-modelo/templo.o: modelo/templo.cpp
-	$(CPP) -c modelo/templo.cpp -o modelo/templo.o $(CXXFLAGS)
+vista/vista.o: vista/vista.cpp
+	$(CPP) -c vista/vista.cpp -o vista/vista.o $(CXXFLAGS)
 
 cavernization_private.res: cavernization_private.rc 
 	$(WINDRES) -i cavernization_private.rc --input-format=rc -o cavernization_private.res -O coff 
