@@ -13,18 +13,12 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <mapa.h>
-#include "input.h"
+#include "entrada.h"
 
 #define  FREC_INPUT 100 // Tiempo de refrezco 10 veces por segundo
 
-int thr_Input(void* v){
-  SDL_Surface* s=(SDL_Surface*)v;
-  Input(s);
-  return 0;
-}
-
-inline void Input(SDL_Surface* screen){
-  
+int Entrada(void* v){
+  SDL_Surface* screen=(SDL_Surface*)v;
   while (1){
     ///////////////////////////////////////
     // TODO: Implementar el dibujamiento //

@@ -1,14 +1,5 @@
-#ifndef INPUT_H
-#define INPUT_H
-
-/** 
- * Es un wrapper para que quede bien el prototipo de la función Input
- * 
- * @param v Parámetro para el thread.
- * 
- * @return 
- */
-int thr_Input(void* v);
+#ifndef ENTRADA_H
+#define ENTRADA_H
 
 /** 
  * Esta función es la que gestiona la entrada del mouse
@@ -17,6 +8,6 @@ int thr_Input(void* v);
  *
  * @return 
  */
-inline void Input(SDL_Surface* screen);
+int Entrada(void* v);
 
-#endif // INPUT_H
+#endif // ENTRADA_H

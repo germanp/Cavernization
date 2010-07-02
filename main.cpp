@@ -14,10 +14,10 @@
 
 #include <SDL_thread.h>
 #include <SDL.h>
-#include "UI/input.h"
-#include "UI/dibujar.h"
-#include "modelo/terreno.h"
-#include "modelo/mapa.h"
+#include "entrada.h"
+#include "vista.h"
+#include "terreno.h"
+#include "mapa.h"
 #include "main.h"
 
 /**
@@ -28,17 +28,18 @@
  */
 
 int main (){
-     SDL_Thread* thr_gui;
-     SDL_Thread* thr_input;
+     SDL_Thread* thr_vista;
+     SDL_Thread* thr_entrada;
      Mapa::abrirMapa("mentira.map"); /* Todo los objetos del UML se guardan en esta matríz */
      SDL_Surface* screen;
   
      screen=Iniciar_Video(640,480,16,"Cavernization",SDL_HWSURFACE);
-     thr_input=SDL_CreateThread(thr_Input,(void*)screen);
-     thr_gui=SDL_CreateThread(thr_Dibujar,(void*)screen);
+     thr_entrada=SDL_CreateThread(Entrada,(void*)screen);
+     thr_vista=SDL_CreateThread(Vista,(void*)screen);
      SDL_Delay(1000);
-     SDL_KillThread(thr_input);
-     SDL_KillThread(thr_gui);
+     SDL_KillThread(thr_entrada);
+     SDL_KillThread(thr_vista);
+     SDL_FreeSurface(screen);
      return 1;
 }
 
