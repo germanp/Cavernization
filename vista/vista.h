@@ -14,6 +14,7 @@
 #define VISTA_H
 
 #include <SDL.h>
+#include "terreno.h"
 
 #define FREC_PINTADO 1000/50 // Tiempo de refrezco 50 veces por segundo
 
@@ -29,11 +30,13 @@ int Vista(void* v);
 /** 
  * Carga los tiles en un array SDL_Surfaces. El vector es alocado con
  * malloc() y debe ser liberado con free().
- * 
+ *
+ * @param tmpl Cadena de texto template al estilo printf con el path
+ * de las imágenes. Debe contener un %d para ir numerando las imágenes.
  * 
  * @return Vector de SDL_Surface* con los tiles cargados
  */
-SDL_Surface** Cargar_Tiles();
+SDL_Surface** Cargar_Tiles(const char* tmpl, int n);
 
 /** 
  * Libera un array de SDL_Surfaces
@@ -41,5 +44,9 @@ SDL_Surface** Cargar_Tiles();
  * @param s Array de surfaces a liberar.
  */
 void Liberar_Tiles(SDL_Surface** s);
+
+
+Terreno** Cargar_Mapa();
+
 
 #endif // VISTA_H

@@ -10,6 +10,9 @@
  * 
  */
 
+#ifndef TERRENOS_CPP
+#define TERRENOS_CPP
+
 #include "terreno.h"
 
 class Pasto:public Terreno{
@@ -26,3 +29,5 @@ class PastoPiedra2:public Terreno{
   inline int getTipo(){return 2;}
   inline bool esPisable(){return false;}
 };
+
+#endif // TERRENOS_CPP

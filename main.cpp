@@ -30,8 +30,9 @@
 int main (int argc, char* argv[]){
      SDL_Thread* thr_vista;
      SDL_Thread* thr_entrada;
-     Mapa::abrirMapa("mentira.map"); /* Todo los objetos del UML se guardan en esta matríz */
      SDL_Surface* screen;
+
+     Mapa::abrirMapa(Cargar_Mapa(),10,10); /* Todo los objetos del UML se guardan en esta matríz */
   
      screen=Iniciar_Video(640,480,16,"Cavernization",SDL_HWSURFACE);
      thr_entrada=SDL_CreateThread(Entrada,(void*)screen);

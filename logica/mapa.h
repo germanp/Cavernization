@@ -28,15 +28,22 @@ class Mapa {
    */
 
   // Código del Singletton
-  Mapa(const char*);
-  ~Mapa();
+ protected:
+  Mapa(Terreno** _mapa, int _ancho, int _alto);
+  static Mapa* _instance;
+  virtual ~Mapa();
+ private:
   Mapa(const Mapa&);
   Mapa &operator=(const Mapa&);
-  static Mapa* _instance;
   //
+
  public:
   inline int getAncho(){ return ANCHO; }
   inline int getAlto(){ return ALTO; }
+
+  static void abrirMapa(Terreno** t, int ancho, int alto){
+    _instance=new Mapa(t,ancho,alto);
+  }
 
   /** 
    * Devuelve la instancia del Mapa del juego. Es un Singleton.
@@ -45,21 +52,6 @@ class Mapa {
    */
   static Mapa* getInstance(){ return _instance; } // ¿?
 
-  /** 
-   * Carga el mapa de un archivo. Se debe usar la primera vez. Después
-   * se usa getInstance();
-   * 
-   * @param file 
-   * 
-   * @return 
-   */
-  static void abrirMapa(const char* file){
-    //delete _instance;
-    //if ( !_instance ) {
-    delete _instance;
-    _instance=new Mapa("prueba");
-      //}
-  }
   /** 
    * Devuelve la posición del mapa especificada por x e y.
    * Esta es la versión para usar cuando guardamos el mapa en un

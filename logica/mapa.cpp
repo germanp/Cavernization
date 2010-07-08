@@ -5,49 +5,22 @@
  * 
  * @brief  Implementación de la clase Mapa
  *	   las descripciones de que hace cada función están en el .h
- * 
+ * @section TODO:
+ *		 - Buscar la manera de sacar la parte de SDL de aca.
  */
 
 #include <unistd.h>
 #include <stdio.h>
 #include "mapa.h"
-#include "terrenos.cpp"
+#include "terreno.h"
 
 Mapa* Mapa::_instance=NULL;
 
-Mapa::Mapa(const char* file): ANCHO(10), ALTO(10){ // Cambiar!!
-  int m[100]= {0,0,0,0,0,0,0,0,0,0,
-	       0,0,0,0,0,2,0,0,0,0,
-	       0,0,1,0,0,0,0,1,0,0,
-	       2,0,0,0,0,0,0,0,0,0,
-	       0,0,0,0,1,0,0,0,2,0,
-	       0,0,0,0,0,0,0,0,0,0,
-	       0,2,0,0,0,0,0,0,0,0,
-	       0,0,0,0,0,0,0,1,0,0,
-	       0,0,1,0,0,0,0,0,0,0,
-	       0,0,0,0,0,0,0,0,0,0};
-
-  int i, length=ANCHO*ALTO;
-  mapa=new Terreno *[100];
-  for (i=0;i<length;i++){
-    switch ( m[i] ){
-    case 0:
-      mapa[i]=new Pasto();
-      break;
-    case 1:
-      mapa[i]=new PastoPiedra();
-      break;
-    case 2:
-      mapa[i]=new PastoPiedra2();
-      break;
-    }
-  }
+Mapa::Mapa(Terreno** _mapa, int _ancho, int _alto): ANCHO(_ancho), ALTO(_alto){
+  mapa=_mapa;
 }
 
 Mapa::~Mapa(){
   printf("Borrando mapa.\n");
   delete[] mapa;
-  ///////////////
-  // REVISAR!! //
-  ///////////////
 }
