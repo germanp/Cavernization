@@ -31,7 +31,7 @@ int Vista(void* v){
   	pos.x=x*64;
   	pos.y=(y-1)*64;
   	SDL_Vista* sdlVista=dynamic_cast<SDL_Vista*>(mapa(x,y));
-	if ( sdlVista )	SDL_BlitSurface(sdlVista->getSurface(),NULL,screen,&pos)
+	if ( sdlVista )	SDL_BlitSurface(sdlVista->getSurface(),NULL,screen,&pos);
       }
     }
     SDL_Flip(screen);
