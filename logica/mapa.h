@@ -13,44 +13,42 @@
 
 #include "terreno.h"
 
-
 class Mapa {
- private:
-  const int ANCHO;
-  const int ALTO;
+ protected:
+  int ANCHO;
+  int ALTO;
   Terreno** mapa;
-
   /** 
    * Carga un mapa en un vector de tipo Terreno.
    *
    * @param file Ruta del archivo de datos para cargar 
-   *		(queda pendiente)
+   * 
    */
 
   // Código del Singletton
- protected:
-  Mapa(Terreno** _mapa, int _ancho, int _alto);
-  static Mapa* _instance;
+  Mapa(){
+    ANCHO=0;
+    ALTO=0;
+  }
   virtual ~Mapa();
+  static Mapa* _instance;
+  virtual Terreno* crearTerreno(int c)=0;
  private:
   Mapa(const Mapa&);
-  Mapa &operator=(const Mapa&);
-  //
-
+  Mapa& operator=(const Mapa&);
  public:
   inline int getAncho(){ return ANCHO; }
   inline int getAlto(){ return ALTO; }
 
-  static void abrirMapa(Terreno** t, int ancho, int alto){
-    _instance=new Mapa(t,ancho,alto);
-  }
+  int cargarMapa(const char* file);
+  virtual void liberarMapa();
 
-  /** 
+  /**
    * Devuelve la instancia del Mapa del juego. Es un Singleton.
-   * 
-   * @return 
+   *
+   * @return
    */
-  static Mapa* getInstance(){ return _instance; } // ¿?
+  static Mapa* getInstance(){ return _instance; }
 
   /** 
    * Devuelve la posición del mapa especificada por x e y.
@@ -64,7 +62,9 @@ class Mapa {
    * 
    * @return 
    */  
-  Terreno* _(unsigned int x,unsigned int y){ return mapa[y*ANCHO+x]; }
+  Terreno* _(unsigned int x,unsigned int y){
+    return mapa[y*ANCHO+x];
+  }
   /** 
    * Devuelve el Terreno correspondiente a la posición del mapa dada
    * por x e y. Esta es la versión de paréntesis sobrecargada. Ej:

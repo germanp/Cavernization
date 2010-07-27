@@ -18,17 +18,17 @@
 
 class SDL_Pasto : public Pasto {
 public:
-  const char* getTileFile(){ return "vista/tiles/pasto0.png"; }
+  const char* getTileFile(){ return "pasto0.png"; }
 };
 
 class SDL_PastoPiedra : public PastoPiedra {
 public:
-  const char* getTileFile(){ return "vista/tiles/pasto1.png"; }
+  const char* getTileFile(){ return "pasto1.png"; }
 };
 
 class SDL_PastoPiedra2 : public PastoPiedra2 {
 public:
-  const char* getTileFile(){ return "vista/tiles/pasto2.png"; }
+  const char* getTileFile(){ return "pasto2.png"; }
 };
 
 #endif // SDL_TERRENOS_CPP

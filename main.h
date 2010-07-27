@@ -22,3 +22,9 @@
  * @return 
  */
 SDL_Surface* Iniciar_Video(int w, int h, int depth, const char* titulo, int flags);
+
+const char* Cavernization_Dir();
+const char* _Cavernization_Dir();
+
+const char* Data_Dir();
+const char* _Data_Dir();

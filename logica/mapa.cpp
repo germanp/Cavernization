@@ -10,14 +10,35 @@
  */
 
 #include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include "mapa.h"
 #include "terreno.h"
 
 Mapa* Mapa::_instance=NULL;
+     
+int Mapa::cargarMapa(const char* file){
+  FILE* fd;
+  int c=0,i=0;
+  this->mapa=(Terreno**)malloc(4000*sizeof(Terreno*));
+  fd=fopen(file,"r");
+  if ( fd == NULL ) return 0;
+  while( (c=fgetc(fd)) != EOF) {
+    if (c == '\n') {
+      if (!ANCHO)
+  	ANCHO=i;
+    } else {
+      mapa[i]=crearTerreno(c);
+      i++;
+      if (!(i%4000)) this->mapa=(Terreno**)realloc(mapa,(i+4000)*sizeof(Terreno*));
+    }
+  }
+  ALTO=i/ANCHO;
+  return 1;
+}
 
-Mapa::Mapa(Terreno** _mapa, int _ancho, int _alto): ANCHO(_ancho), ALTO(_alto){
-  mapa=_mapa;
+void Mapa::liberarMapa(){
+  delete Mapa::_instance;
 }
 
 Mapa::~Mapa(){

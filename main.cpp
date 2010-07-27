@@ -14,10 +14,11 @@
 
 #include <SDL_thread.h>
 #include <SDL.h>
+#include <errno.h>
 #include "entrada.h"
 #include "vista.h"
 #include "terreno.h"
-#include "mapa.h"
+#include "sdl_mapa.h"
 #include "main.h"
 
 /**
@@ -31,9 +32,10 @@ int main (int argc, char* argv[]){
      SDL_Thread* thr_vista;
      SDL_Thread* thr_entrada;
      SDL_Surface* screen;
-
-     Mapa::abrirMapa(Cargar_Mapa(),10,10); /* Todo los objetos del UML se guardan en esta matríz */
-  
+     char map_file[100];
+     sprintf(map_file,"%smapa.map",Data_Dir());
+     SDL_Mapa* mapa=SDL_Mapa::getInstance();
+     mapa->cargarMapa(map_file);
      screen=Iniciar_Video(640,480,16,"Cavernization",SDL_HWSURFACE);
      thr_entrada=SDL_CreateThread(Entrada,(void*)screen);
      thr_vista=SDL_CreateThread(Vista,(void*)screen);
@@ -41,7 +43,7 @@ int main (int argc, char* argv[]){
      SDL_KillThread(thr_entrada);
      SDL_KillThread(thr_vista);
      SDL_FreeSurface(screen);
-     return 1;
+     return 0;
 }
 
 SDL_Surface* Iniciar_Video(int w, int h,int depth,const char* titulo, int flags){
@@ -65,4 +67,35 @@ SDL_Surface* Iniciar_Video(int w, int h,int depth,const char* titulo, int flags)
      }
      
      return screen;
+}
+
+const char* Cavernization_Dir(){
+  static const char* cav_dir=_Cavernization_Dir();
+  return cav_dir;
+}
+const char* _Cavernization_Dir(){
+  size_t size = 100;
+  char *buffer;
+  while (1){
+    buffer = (char *) malloc (size);
+    if ( getcwd (buffer, size) == buffer )
+      return buffer;
+    free (buffer);
+    if ( errno != ERANGE )
+      return 0;
+    size *= 2;
+  }
+}
+
+const char* Data_Dir(){
+  static const char* data_dir=_Data_Dir();
+  return data_dir;
+}
+const char* _Data_Dir(){
+  const char* data="/data/";
+  size_t size=strlen(Cavernization_Dir())+strlen(data);
+  char* buffer=(char*)malloc(size);
+  strncpy(buffer,Cavernization_Dir(),size);
+  strncat(buffer,data,size);
+  return buffer;
 }

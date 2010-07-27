@@ -6,6 +6,7 @@
 #include <SDL_image.h>
 #include "sdl_terrenos.cpp"
 #include "terrenos.cpp"
+#include "../main.h"
 
 template <class InstanciaTile> class SDL_Tile : public InstanciaTile, public SDL_Vista {
 private:
@@ -22,7 +23,9 @@ template<class InstanciaTile> SDL_Surface* SDL_Tile<InstanciaTile>::tile=NULL;
 
 template <class InstanciaTile> SDL_Tile<InstanciaTile>::SDL_Tile(){
   if ( cantObj == 0 ){
-    tile=IMG_Load(this->getTileFile());
+    char aux[200];
+    sprintf(aux,"%stiles/%s",Data_Dir(),this->getTileFile());
+    tile=IMG_Load(aux);
     if ( tile == NULL ) 
       printf("%s\n",IMG_GetError());
   }

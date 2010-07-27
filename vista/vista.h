@@ -48,5 +48,6 @@ void Liberar_Tiles(SDL_Surface** s);
 
 Terreno** Cargar_Mapa();
 
+Terreno** leerMapa(const char* file,int* width);
 
 #endif // VISTA_H
