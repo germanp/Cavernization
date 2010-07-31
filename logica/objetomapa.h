@@ -22,11 +22,10 @@ class ObjetoMapa {
    */
   int ancho,alto,x,y;
  public:
-  /**
-   * Método que devuelve el tipo de objeto
-   *
-   * @return
-   */
-  virtual int getTipo()=0;
+  ObjetoMapa(int x, int y) : x(x), y(y){}
+  ObjetoMapa(){}
+  int getX(){ return x; }
+  int getY(){ return y; }
+  virtual ~ObjetoMapa(){}
 };
 #endif // OBJETO_MAPA_H

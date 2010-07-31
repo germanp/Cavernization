@@ -14,6 +14,7 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include "mapa.h"
+#include "objetomapa.h"
 #include "vista.h"
 #include "sdl_vista.h"
 
@@ -25,10 +26,19 @@ int Vista(void* v){
   while (1){
     for (y=0 ; y<mapa.getAlto(); y++){
       for (x=0 ; x<mapa.getAncho(); x++){
-  	pos.x=x*20;
-  	pos.y=(y-1)*20;
-	SDL_Vista* sdlVista=dynamic_cast<SDL_Vista*>(mapa(x,y));
-	SDL_BlitSurface(sdlVista->getSurface(),NULL,screen,&pos);
+  	pos.x=x*32;
+  	pos.y=y*32;
+	SDL_Vista* terreno=dynamic_cast<SDL_Vista*>(mapa(x,y));
+	if( terreno!=NULL ){
+	  SDL_BlitSurface(terreno->getSurface(),NULL,screen,&pos);
+	  ObjetoMapa* objetoMapa=mapa(x,y)->getContenido();
+	  if ( objetoMapa != NULL ){
+	    pos.x=objetoMapa->getX();
+	    pos.y=objetoMapa->getY();
+	    SDL_Vista* o=dynamic_cast<SDL_Vista*>(objetoMapa);
+	    if( o != NULL ) SDL_BlitSurface(o->getSurface(),NULL,screen,&pos);
+	  }
+	}
       }
     }
     SDL_Flip(screen);

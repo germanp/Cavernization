@@ -14,19 +14,24 @@
 #define TERRENOS_CPP
 
 #include "terreno.h"
+#include "objetomapa.h"
 
 class Pasto:public Terreno{
-  inline int getTipo(){return 0;}
-  inline bool esPisable(){return true;}
+public:
+  Pasto(ObjetoMapa* o):Terreno(o){}
+  Pasto():Terreno(){}
 };
 
 class PastoPiedra:public Terreno{
-  inline int getTipo(){return 1;}
-  inline bool esPisable(){return true;}
+public:
+  PastoPiedra(ObjetoMapa* o):Terreno(o){}
+  PastoPiedra():Terreno(){}
 };
 
 class PastoPiedra2:public Terreno{
-  inline int getTipo(){return 2;}
+public:
+  PastoPiedra2(ObjetoMapa* o): Terreno(o){}
+  PastoPiedra2(): Terreno(){}
   inline bool esPisable(){return false;}
 };
 

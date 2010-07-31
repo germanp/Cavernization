@@ -7,8 +7,7 @@
  * dibujar y controlar la entrada del usuario.
  *
  * @section TODO
- * - Agregar un sistema para que el thread input() pueda comunicarse
- * con el de dibujar() para que se interrumpa y libere la memoria que usó.
+ * - Destruir los objetos correctamente.
  */
 
 
@@ -36,6 +35,7 @@ int main (int argc, char* argv[]){
      sprintf(map_file,"%smapa.map",Data_Dir());
      SDL_Mapa* mapa=SDL_Mapa::getInstance();
      mapa->cargarMapa(map_file);
+     printf("Gorila!!\n");
      screen=Iniciar_Video(640,480,16,"Cavernization",SDL_HWSURFACE);
      thr_entrada=SDL_CreateThread(Entrada,(void*)screen);
      thr_vista=SDL_CreateThread(Vista,(void*)screen);

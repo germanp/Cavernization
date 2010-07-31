@@ -16,8 +16,10 @@
 
 #include "objetomapa.h"
 
-class ObjetoConDuenio:ObjetoMapa{
- private:
+class ObjetoConDuenio: public ObjetoMapa{
+ public:
+  ObjetoConDuenio(int x, int y) : ObjetoMapa(x,y) {}
+  ObjetoConDuenio() : ObjetoMapa() {}
 };
 
 #endif // OBJETO_CON_DUENIO_H

@@ -8,6 +8,9 @@
  * 
  */
 
+#ifndef MAIN_H
+#define MAIN_H
+
 #include <SDL.h>
 
 /** 
@@ -28,3 +31,5 @@ const char* _Cavernization_Dir();
 
 const char* Data_Dir();
 const char* _Data_Dir();
+
+#endif // MAIN_H

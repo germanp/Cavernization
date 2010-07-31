@@ -32,7 +32,7 @@ class Mapa {
   }
   virtual ~Mapa();
   static Mapa* _instance;
-  virtual Terreno* crearTerreno(int c)=0;
+  virtual Terreno** cargarMapa(const char* file)=0;
  private:
   Mapa(const Mapa&);
   Mapa& operator=(const Mapa&);
@@ -40,7 +40,6 @@ class Mapa {
   inline int getAncho(){ return ANCHO; }
   inline int getAlto(){ return ALTO; }
 
-  int cargarMapa(const char* file);
   virtual void liberarMapa();
 
   /**

@@ -22,17 +22,27 @@
 
 class Terreno{
  protected:
-  ::std::list<ObjetoMapa*> objetosNaturales; // Lista de árboles y
-				     // monumentos. Se dibujan primero.
-  Edificio* e; // Si el terreno cuenta con un edificio. Se
-		      // dibujan segundo
-  ::std::list<Personaje*> personajes; // Lista de personajes. Se dibujan al final
- public:
   /**
-   * Permite conocer si el terreno es pisable o no.
-   * La clase hija implementa este método y devuelve según
-   * 0 o 1 corresponda
+   * Cada terreno puede contener un ObjetoMapa, ya sea una casa,
+   * personaje, árbol, etc.
+   * 
+   */
+  ObjetoMapa* contenido;
+ public:
+ Terreno(){ contenido=NULL; }
+ Terreno(ObjetoMapa* o){
+   this->contenido=o;
+ }
+  /**
+   * Permite conocer si el terreno es pisable o no. Por defecto se
+   * fija si hay algo ubicado en el terreno.
    */ 
-  virtual bool esPisable()=0;
+ virtual bool esPisable(){
+   if ( contenido ) return false; else return true;
+ }
+ virtual void ponerObjeto(ObjetoMapa* o){
+   this->contenido=o;
+ }
+ ObjetoMapa* getContenido(){ return contenido; }
 };
 #endif // TERRENO_H
