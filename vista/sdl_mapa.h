@@ -35,20 +35,12 @@ public:
       case '-': mapa[i]=new SDL_Tile<Pasto>(); break;
 	/* case 'o': mapa[i]=new SDL_Tile<SDL_PastoPiedra>(); break; */
 	/* case 'O': mapa[i]=new SDL_Tile<SDL_PastoPiedra2>(); break; */
-      case '/': 
-	if ( (c=fgetc(fd)) == '\\' ){
-	  ObjetoMapa* o=new SDL_Tile<Casa>();
-	  Pasto* p1=new SDL_Tile<Pasto>();
-	  Pasto* p2=new SDL_Tile<Pasto>();
-	  p1->ponerObjeto(o);
-	  p2->ponerObjeto(o);
-	  mapa[i++]=p1;
-	  mapa[i]=p2;
-	  break;
-	} else {
-	  fprintf(stderr,"Error en la carga de mapa: Carácter '%c' inválido, se esperaba un '\\' (en el caracter nº %i). ",c,i);
-	  return 0;
-	}
+      case 'A': {
+	Pasto* p1=new SDL_Tile<Pasto>();
+	p1->ponerObjeto(new SDL_Tile<Casa>());
+	mapa[i]=p1;
+	break;
+      }
       case '\n':
 	if (!ANCHO)
 	  ANCHO=i;
@@ -60,7 +52,6 @@ public:
       }
     }
     ALTO=i/ANCHO;
-    printf("Lalallala");
   }
 public:
   static SDL_Mapa* getInstance(){

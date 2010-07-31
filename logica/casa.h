@@ -20,6 +20,6 @@ class Casa: public Edificio{
   Casa():Edificio(){}
   Casa(int x, int y): Edificio(x,y){ }
   //  Fiel* nuevoFiel();
-
+  void setPos(int x, int y){ this->x=x; this->y=y; }
 };
 #endif // CASA_H
