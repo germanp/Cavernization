@@ -7,14 +7,14 @@ Ver=1
 ObjFiles=
 Includes=
 Libs=
-PrivateResource=cavernization_private.rc
+PrivateResource=
 ResourceIncludes=
 MakeIncludes=
 Compiler=-I"<INCLUDE>\SDL" -Dmain=SDL_main_@@_
-CppCompiler=-I"<INCLUDE>\SDL" -Dmain=SDL_main_@@_-I"logica"_@@_-I"vista"_@@_-I"entrada"_@@_
+CppCompiler=-I"D:\Documents and Settings\hola\Mis documentos\braian\SDL-1.2.14\include\SDL" -Dmain=SDL_main_@@_-I"logica"_@@_-I"vista"_@@_-I"entrada"_@@_
 Linker=-lmingw32 -lSDL_Image -lSDLmain -lSDL -liberty_@@_
 IsCpp=1
-Icon=cavernization.ico
+Icon=
 ExeOutput=
 ObjectOutput=
 OverrideOutput=0

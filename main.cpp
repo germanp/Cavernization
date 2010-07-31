@@ -39,7 +39,7 @@ int main (int argc, char* argv[]){
      screen=Iniciar_Video(640,480,16,"Cavernization",SDL_HWSURFACE);
      thr_entrada=SDL_CreateThread(Entrada,(void*)screen);
      thr_vista=SDL_CreateThread(Vista,(void*)screen);
-     SDL_Delay(1000);
+     SDL_Delay(10000);
      SDL_KillThread(thr_entrada);
      SDL_KillThread(thr_vista);
      SDL_FreeSurface(screen);

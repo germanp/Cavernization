@@ -4,14 +4,14 @@
 CPP  = g++.exe
 CC   = gcc.exe
 WINDRES = windres.exe
-RES  = cavernization_private.res
+RES  = 
 OBJ  = main.o entrada/entrada.o logica/arbol.o logica/arbolchico.o logica/arbolgrande.o logica/arbolmediano.o logica/casa.o logica/chaman.o logica/cuartel.o logica/fiel.o logica/guerrero.o logica/guerrerofuego.o logica/jugador.o logica/jugadorhumano.o logica/jugadoria.o logica/mapa.o logica/monumento.o logica/personaje.o logica/predicador.o logica/templo.o logica/terrenos.o vista/vista.o $(RES)
 LINKOBJ  = main.o entrada/entrada.o logica/arbol.o logica/arbolchico.o logica/arbolgrande.o logica/arbolmediano.o logica/casa.o logica/chaman.o logica/cuartel.o logica/fiel.o logica/guerrero.o logica/guerrerofuego.o logica/jugador.o logica/jugadorhumano.o logica/jugadoria.o logica/mapa.o logica/monumento.o logica/personaje.o logica/predicador.o logica/templo.o logica/terrenos.o vista/vista.o $(RES)
-LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lmingw32 -lSDL_Image -lSDLmain -lSDL -liberty  
+LIBS =  -L"C:/Dev-Cpp/lib" -L"D:/Documents and Settings/hola/Mis documentos/braian/SDL-1.2.14/lib" -L"D:/Documents and Settings/hola/Mis documentos/braian/SDL_image-1.2.4/lib" -mwindows -lmingw32 -lSDL_Image -lSDLmain -lSDL -liberty  
 INCS =  -I"C:/Dev-Cpp/include" 
-CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include"  -I"D:/Documents and Settings/hola/Mis documentos/braian/SDL-1.2.14/include/SDL"  -I"D:/Documents and Settings/hola/Mis documentos/braian/SDL_image-1.2.4/include" 
 BIN  = cavernization.exe
-CXXFLAGS = $(CXXINCS) -I"C:\Dev-Cpp\\include\SDL" -Dmain=SDL_main -I"logica" -I"vista" -I"entrada"  
+CXXFLAGS = $(CXXINCS) -I"D:\Documents and Settings\hola\Mis documentos\braian\SDL-1.2.14\include\SDL" -Dmain=SDL_main -I"logica" -I"vista" -I"entrada"  
 CFLAGS = $(INCS) -I"C:\Dev-Cpp\\include\SDL" -Dmain=SDL_main  
 RM = rm -f
 
@@ -91,6 +91,3 @@ logica/terrenos.o: logica/terrenos.cpp
 
 vista/vista.o: vista/vista.cpp
 	$(CPP) -c vista/vista.cpp -o vista/vista.o $(CXXFLAGS)
-
-cavernization_private.res: cavernization_private.rc 
-	$(WINDRES) -i cavernization_private.rc --input-format=rc -o cavernization_private.res -O coff 
