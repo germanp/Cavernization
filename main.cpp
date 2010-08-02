@@ -29,7 +29,6 @@
 
 int main (int argc, char* argv[]){
      SDL_Thread* thr_vista;
-     //SDL_Thread* thr_entrada;
      SDL_Surface* screen;
      char map_file[100];
      sprintf(map_file,"%smapa.map",Data_Dir());
@@ -38,10 +37,7 @@ int main (int argc, char* argv[]){
      printf("Gorila!!\n");
      screen=Iniciar_Video(640,480,16,"Cavernization",SDL_HWSURFACE);
      thr_vista=SDL_CreateThread(Vista,(void*)screen);
-     Entrada((void*)screen);
-     //thr_entrada=SDL_CreateThread(Entrada,(void*)screen);
-     //SDL_Delay(10000);
-     //SDL_KillThread(thr_entrada);
+     Entrada(screen);
      SDL_KillThread(thr_vista);
      SDL_FreeSurface(screen);
      return 0;

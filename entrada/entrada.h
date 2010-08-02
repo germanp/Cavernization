@@ -8,6 +8,6 @@
  *
  * @return 
  */
-int Entrada(void* v);
+int Entrada(SDL_Surface* s);
 
 #endif // ENTRADA_H
