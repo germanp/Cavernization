@@ -1,7 +1,7 @@
 /**
- * @file   dibujar.cpp
- * @author Germán Podestá
- * @date   Sun Jun 13 12:03:40 2010
+ * @file   entrada.cpp
+ * @author german <german@german-desktop>
+ * @date   Tue Aug  3 17:30:08 2010
  * 
  * @brief  Este archivo tiene las rutinaas para dibujar el juego en la pantalla
  * 

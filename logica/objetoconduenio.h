@@ -17,9 +17,11 @@
 #include "objetomapa.h"
 
 class ObjetoConDuenio: public ObjetoMapa{
+ protected:
+  int vida;
  public:
-  ObjetoConDuenio(int x, int y) : ObjetoMapa(x,y) {}
-  ObjetoConDuenio() : ObjetoMapa() {}
+  ObjetoConDuenio(int x, int y);
+  ObjetoConDuenio();
 };
 
 #endif // OBJETO_CON_DUENIO_H

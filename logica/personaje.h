@@ -17,61 +17,75 @@
 #include "edificio.h"
 #include "monumento.h"
 
+enum ORIENTACION {S,SE,E,NE,N,NO,O,SO};
+enum ESTADO {QUIETO, CORRIENDO, ATACANDO, CONSTRUYENDO};
 
-class Personaje:ObjetoConDuenio{
+class Personaje : public ObjetoConDuenio{
  private:
-  int vida;
-  /*int velocidad;
-  int fuerzaGolpe;*/
- /*  /\* */
- /*   * Orientacion del personaje: 1=sur, */
- /*   * 2=norte, 3=este, 4=oeste. */
- /*   *\/ */
- /*  int orientacion; */
- /*  /\** */
- /*   * Estado del personaje: 1=quieto, 2=moviendose */
- /*   *\/ */
- /*  int estado; */
- /* public: */
- /*  /\** */
- /*   * Devuelve el estado del personaje */
- /*   * @return int */
- /*   *\/ */
- /*  int getEstado(); */
- /*  /\** */
- /*   * Devuelve la orientacion del personaje */
- /*   * @return int */
- /*   *\/ */
- /*  int getOrientacion(); */
- /*  /\** */
- /*   * Ordena caminar al personaje hasta una posicion en el mapa */
- /*   * @param int x, int y */
- /*   *\/ */
- /*  void caminar(int x, int y); */
- /*  /\** */
- /*   * Ordena atacar a un personaje */
- /*   * @param Personaje p */
- /*   *\/ */
- /*  void atacar(Personaje p); */
- /*  /\** */
- /*   * Ordena atacar a un edificio */
- /*   * @param Edificio e */
- /*   *\/ */
- /*  void atacar(Edificio e); */
- /*  /\** */
- /*   * Pone a rezarle a un monumento */
- /*   * @param Monumento m */
- /*   *\/ */
- /*  void rezar(Monumento m); */
- /*  /\** */
- /*   * Recibe un golpe */
- /*   * @param int danio */
- /*   *\/ */
- /*  void recibirGolpe(int danio); */
- /*  /\** */
- /*   * Mata al personaje */
- /*   *\/ */
- /*  void morir(); */
+  int velocidad;
+  int fuerzaGolpe;
+
+  ORIENTACION orientacion;
+  ESTADO estado;
+ public:
+  /** 
+   * Construye el personaje y lo sitúa en las coord. x e y.
+   * 
+   * @param x Posición x del mapa.
+   * @param y Posición y del mapa.
+   * 
+   * @return 
+   */
+  Personaje(int x, int y);
+  /** 
+   * Construye el personaje pero deja las posiciones de x e y sin
+   * iniciar. Obligatoriamente se debe llamar a setPos(x,y) luego de
+   * la construcción usando este constructor. Se utiliza debido a que
+   * la implementación de SDL_Sprite dificulta el uso de parámetros en
+   * el constructor.
+   * @return 
+   */
+  Personaje();
+  virtual ~Personaje();
+  /**
+   * Devuelve el estado del personaje
+   * @return int
+   */
+  int getEstado(){ return estado; }
+  /**
+   * Devuelve la orientacion del personaje
+   * @return int
+   */
+  int getOrientacion(){ return orientacion; }
+  /**
+   * Ordena caminar al personaje hasta una posicion en el mapa
+   * @param int x, int y
+   */
+  void caminar(int x, int y);
+  /**
+   * Ordena atacar a un personaje
+   * @param Personaje p
+   */
+  void atacar(Personaje p);
+  /**
+   * Ordena atacar a un edificio
+   * @param Edificio e
+   */
+  void atacar(Edificio e);
+  /**
+   * Pone a rezarle a un monumento
+   * @param Monumento m
+   */
+  void rezar(Monumento m);
+  /**
+   * Recibe un golpe
+   * @param int danio
+   */
+  void recibirGolpe(int danio);
+  /**
+   * Mata al personaje
+   */
+  void morir();
 };
 
 #endif // PERSONAJE_H

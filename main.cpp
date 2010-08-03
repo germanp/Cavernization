@@ -31,11 +31,10 @@ int main (int argc, char* argv[]){
      SDL_Thread* thr_vista;
      SDL_Surface* screen;
      char map_file[100];
-     sprintf(map_file,"%smapa.map",Data_Dir());
+     screen=Iniciar_Video(640,480,16,"Cavernization",SDL_SWSURFACE);
      SDL_Mapa* mapa=SDL_Mapa::getInstance();
+     sprintf(map_file,"%smapa.map",Data_Dir());
      mapa->cargarMapa(map_file);
-     printf("Gorila!!\n");
-     screen=Iniciar_Video(640,480,16,"Cavernization",SDL_HWSURFACE);
      thr_vista=SDL_CreateThread(Vista,(void*)screen);
      Entrada(screen);
      SDL_KillThread(thr_vista);

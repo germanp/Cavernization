@@ -9,24 +9,27 @@
  * @brief Personaje de tipo Fiel
  *
  * @section TODO
- *  <>
+ *
  */
 
 #include "personaje.h"
 #include "arbol.h"
 #include "edificio.h"
 
-/* class Fiel:public Personaje{ */
-/*  public: */
-/*   /\** */
-/*    * Ordena a un fiel a construir algun edificio */
-/*    * @param Edificio e */
-/*    *\/ */
-/*   void construir(Edificio e); */
-/*   /\** */
-/*    * Ordena talar un arbol para construir algun tipo de edificio */
-/*    * @param Arbol a */
-/*    *\/ */
-/*   void talar(Arbol a); */
-/* }; */
+class Fiel : public Personaje{
+ public:
+  Fiel();
+  Fiel(int x, int y);
+  ~Fiel();
+  /**
+   * Ordena a un fiel a construir un edificio
+   * @param e Edificio a construir
+   */
+  void construir(Edificio e);
+  /**
+   * Ordena talar un arbol para construir algun tipo de edificio
+   * @param a Arbol a talar
+   */
+  void talar(Arbol a);
+};
 #endif // FIEL_H

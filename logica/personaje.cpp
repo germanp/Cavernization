@@ -11,19 +11,12 @@
 
 #include "personaje.h"
 
-/*int Personaje::getEstado(){
+Personaje::Personaje(): ObjetoConDuenio(), estado(QUIETO), orientacion(S) {}
 
-
-}
-
-int Personaje::getOrientacion(){
-    
-    
-}
+Personaje::Personaje(int x,int y) : ObjetoConDuenio(x,y), estado(QUIETO), orientacion(S) {}
 
 void Personaje::caminar(int x, int y){
      
-
 }
 
 void Personaje::atacar(Personaje p){
@@ -47,6 +40,7 @@ void Personaje::recibirGolpe(int danio){
 }
 
 void Personaje::morir(){
-     
-     
-}*/
+         
+}
+
+Personaje::~Personaje(){}

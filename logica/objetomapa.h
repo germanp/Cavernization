@@ -22,10 +22,11 @@ class ObjetoMapa {
    */
   int ancho,alto,x,y;
  public:
-  ObjetoMapa(int x, int y) : x(x), y(y){}
-  ObjetoMapa(){}
+  ObjetoMapa(int x, int y);
+  ObjetoMapa();
   int getX(){ return x; }
   int getY(){ return y; }
-  virtual ~ObjetoMapa(){}
+  void setPos(int x, int y){ this->x=x; this->y=y; }
+  virtual ~ObjetoMapa();
 };
 #endif // OBJETO_MAPA_H

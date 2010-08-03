@@ -1,10 +1,10 @@
 BASEDIR=..
-CFLAGS=$(shell sdl-config --cflags)
+CFLAGS=$(shell sdl-config --cflags) -g
 INCS=-I$(BASEDIR)/logica/
 CXX=g++ $(CFLAGS) $(INCS)
 RM=rm -f
 
-OBJS=vista.o sdl_terrenos.o
+OBJS=vista.o tiles.o sprites.o
 
 .SUFFIXES: .o .cpp
 

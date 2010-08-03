@@ -12,3 +12,4 @@
 #include "casa.h"
  
 //Fiel* Casa::nuevoFiel(){} 
+Casa::~Casa(){}

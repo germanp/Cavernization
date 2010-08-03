@@ -13,9 +13,11 @@
 
 #include "mapa.h"
 //
+#include "sdl_sprite.h"
 #include "sdl_tile.h"
-//
-//#include "terrenos.cpp"
+#include "terrenos.cpp"
+#include "casa.h"
+#include "fiel.h"
 
 class SDL_Mapa : public Mapa{
  private:
@@ -32,12 +34,24 @@ public:
     if ( fd == NULL ) return 0;
     while( (c=fgetc(fd)) != EOF ) {
       switch(c) {
-      case '-': mapa[i]=new SDL_Tile<Pasto>(); break;
+      case '-': {mapa[i]=new SDL_Tile<Pasto>(); break;}
 	/* case 'o': mapa[i]=new SDL_Tile<SDL_PastoPiedra>(); break; */
 	/* case 'O': mapa[i]=new SDL_Tile<SDL_PastoPiedra2>(); break; */
-      case 'A': {
+      case 'R':{
 	Pasto* p1=new SDL_Tile<Pasto>();
-	p1->ponerObjeto(new SDL_Tile<Casa>());
+	Fiel* f1=new SDL_Sprite<Fiel>();
+	if ( ANCHO ) f1->setPos((i%ANCHO)*getLongCasilla(),(i/ANCHO)*getLongCasilla());
+	else f1->setPos(i,0);
+      	p1->ponerObjeto(f1);
+      	mapa[i]=p1;
+      	break;
+      }
+      case 'A':{
+	Pasto* p1=new SDL_Tile<Pasto>();
+	Casa* c1=new SDL_Tile<Casa>();
+	if ( ANCHO ) c1->setPos((i%ANCHO)*getLongCasilla(),((i/ANCHO)-1)*getLongCasilla());
+	else c1->setPos(i,0);
+	p1->ponerObjeto(c1);
 	mapa[i]=p1;
 	break;
       }
@@ -45,7 +59,7 @@ public:
 	if (!ANCHO)
 	  ANCHO=i;
 	break;
-      }
+	}
       if ( c != '\n' ) {
 	i++;
 	if (!(i%4000)) mapa=(Terreno**)realloc(mapa,(i+4000)*sizeof(Terreno*));

@@ -6,9 +6,6 @@
 #include <SDL_image.h>
 #include "../main.h"
 
-#include "terrenos.cpp"
-#include "casa.h"
-
 template <class InstanciaTile> class SDL_Tile : public InstanciaTile, public SDL_Vista {
 private:
   static SDL_Surface* tile;
@@ -17,33 +14,32 @@ public:
   SDL_Tile();
   ~SDL_Tile();
   SDL_Surface* getSurface(){ return tile; }
-  const char* getTileFile();//{ return 0; }
+  static const char* getTileFile();
 };
 
 template<class InstanciaTile> int SDL_Tile<InstanciaTile>::cantObj=0;
 template<class InstanciaTile> SDL_Surface* SDL_Tile<InstanciaTile>::tile=NULL;
 
 template <class InstanciaTile> SDL_Tile<InstanciaTile>::SDL_Tile():InstanciaTile(),SDL_Vista() {
-  if ( cantObj == 0 ){
+  if ( tile == NULL ){
     char aux[200];
-    sprintf(aux,"%stiles/%s",Data_Dir(),this->getTileFile());
+    sprintf(aux,"%stiles/%s",Data_Dir(),getTileFile());
     tile=IMG_Load(aux);
+    printf("Cargando %s\n",aux);
     if ( tile == NULL ) 
       printf("%s\n",IMG_GetError());
   }
+  cantObj++;
 }
 
 template <class InstanciaTile> SDL_Tile<InstanciaTile>::~SDL_Tile(){
   cantObj--;
-  if ( cantObj==0 ) SDL_FreeSurface(tile);
+  if ( cantObj==0 ) {
+    SDL_FreeSurface(tile);
+    tile=NULL;
+  }
 }
 
-template<> const char* SDL_Tile<Pasto>::getTileFile(){
-  return "pasto0.png";
-}
 
-template<> const char* SDL_Tile<Casa>::getTileFile(){
-  return "casa.png";
-}
 
 #endif // SDL_TILE_H

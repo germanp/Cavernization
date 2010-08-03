@@ -17,6 +17,7 @@ class Mapa {
  protected:
   int ANCHO;
   int ALTO;
+  const int LONGCASILLA;
   Terreno** mapa;
   /** 
    * Carga un mapa en un vector de tipo Terreno.
@@ -26,7 +27,7 @@ class Mapa {
    */
 
   // Código del Singletton
-  Mapa(){
+ Mapa():LONGCASILLA(32) {
     ANCHO=0;
     ALTO=0;
   }
@@ -37,8 +38,9 @@ class Mapa {
   Mapa(const Mapa&);
   Mapa& operator=(const Mapa&);
  public:
-  inline int getAncho(){ return ANCHO; }
-  inline int getAlto(){ return ALTO; }
+  int getAncho(){ return ANCHO; }
+  int getAlto(){ return ALTO; }
+  int getLongCasilla(){ return LONGCASILLA; }
 
   virtual void liberarMapa();
 
@@ -48,7 +50,6 @@ class Mapa {
    * @return
    */
   static Mapa* getInstance(){ return _instance; }
-
   /** 
    * Devuelve la posición del mapa especificada por x e y.
    * Esta es la versión para usar cuando guardamos el mapa en un
