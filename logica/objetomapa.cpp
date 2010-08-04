@@ -10,9 +10,12 @@
 
 
 #include "objetomapa.h"
+#include <stdio.h>
 
 ObjetoMapa::ObjetoMapa(int x, int y) : x(x), y(y){}
 
-ObjetoMapa::ObjetoMapa(){}
+ObjetoMapa::ObjetoMapa(){
+  printf("Creado\n");
+}
 
 ObjetoMapa::~ObjetoMapa(){}

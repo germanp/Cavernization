@@ -16,14 +16,14 @@ Personaje::Personaje(): ObjetoConDuenio(), estado(QUIETO), orientacion(S), thrAc
 
 Personaje::Personaje(int x,int y) : ObjetoConDuenio(x,y), estado(QUIETO), orientacion(S), thrAccion(NULL) {}
 
-void Personaje::caminar(int x, int y){
-  this->destX=x;
-  this->destY=y;
+void Personaje::caminar(int destX, int destY){
+  this->destX=destX;
+  this->destY=destY;
   // this->estado=CAMINANDO;
   if ( thrAccion ) SDL_KillThread(thrAccion);
+  entCaminar(this);
   this->thrAccion = SDL_CreateThread(Personaje::entCaminar,this);
 }
-
 void Personaje::atacar(Personaje p){
      
      
@@ -59,11 +59,12 @@ int Personaje::entCaminar(void* t){
 
 int Personaje::_caminar(){
   Mapa& mapa = *Mapa::getInstance();
-  ObjetoMapa* o = mapa(x/mapa.getLongCasilla(),y/mapa.getLongCasilla())->getContenido();
-  // NO FUNCIONA BIEN, REVISAR
-  x=destX-16;
-  y=destY-16;
-  mapa(x/mapa.getLongCasilla(),y/mapa.getLongCasilla())->ponerObjeto(o);
-  printf("Ya caminé.\n");
+  Terreno* terrenoAnt = mapa(x/mapa.getLongCasilla(),y/mapa.getLongCasilla());
+  ObjetoMapa* o = terrenoAnt->getContenido();
+  terrenoAnt->ponerObjeto(NULL);
+  this->x=destX-mapa.getLongCasilla()/2;
+  this->y=destY-mapa.getLongCasilla();
+  mapa(destX/mapa.getLongCasilla(),destY/mapa.getLongCasilla())->ponerObjeto(o);
+  printf("Moviendo a casilla (%d,%d).\n",x/mapa.getLongCasilla(),y/mapa.getLongCasilla());
   return 1;
 }

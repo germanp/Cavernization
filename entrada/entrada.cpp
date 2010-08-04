@@ -39,5 +39,6 @@ int Entrada(SDL_Surface* s){
 	   }
 	 }
        }
+       SDL_Delay(FREC_INPUT);
      }
 }

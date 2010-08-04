@@ -30,7 +30,7 @@ public:
   SDL_Surface* getSurface(){
     reduccion++;
     if ( reduccion > 2 ){
-      //      printf("Cuadro: %i, Total: %i, Red: %i\n",cuadro,nSprites[this->getEstado()][this->getOrientacion()],reduccion);
+      //printf("Cuadro: %i, Total: %i, Red: %i\n",cuadro,nSprites[this->getEstado()][this->getOrientacion()],reduccion);
       if ( cuadro == nSprites[0][0]-1 ) cuadro=0; else cuadro++;
       reduccion=0;
     }
