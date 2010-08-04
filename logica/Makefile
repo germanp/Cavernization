@@ -1,7 +1,8 @@
+CFLAGS=$(shell sdl-config --cflags) -g
+CXX=g++ $(CFLAGS) $(INCS)
+
 OBJS=mapa.o arbolchico.o arbol.o arbolgrande.o arbolmediano.o casa.o chaman.o cuartel.o fiel.o guerrero.o guerrerofuego.o jugador.o jugadorhumano.o jugadoria.o mapa.o monumento.o personaje.o predicador.o templo.o objetomapa.o objetoconduenio.o
 RM=rm -f
-AR=ar -rcs
-
 
 .SUFFIXES: .o .cpp
 

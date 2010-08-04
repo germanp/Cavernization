@@ -13,20 +13,28 @@
  *  <>
  */
 
+#include <SDL_thread.h>
 #include "objetoconduenio.h"
 #include "edificio.h"
 #include "monumento.h"
 
 enum ORIENTACION {S,SE,E,NE,N,NO,O,SO};
-enum ESTADO {QUIETO, CORRIENDO, ATACANDO, CONSTRUYENDO};
+enum ESTADO {QUIETO, CAMINANDO, ATACANDO, CONSTRUYENDO};
 
 class Personaje : public ObjetoConDuenio{
- private:
+private:
+  int _caminar();
+protected:
   int velocidad;
   int fuerzaGolpe;
+  int destX;
+  int destY;
 
   ORIENTACION orientacion;
   ESTADO estado;
+
+  SDL_Thread* thrAccion;
+  static int entCaminar(void* t);
  public:
   /** 
    * Construye el personaje y lo sitúa en las coord. x e y.

@@ -19,61 +19,25 @@
 int Entrada(SDL_Surface* s){
      SDL_Event evento;
      Mapa& mapa = *Mapa::getInstance();
+     Personaje* personaje;
+     for( ; ; ) {
+       while(SDL_PollEvent(&evento)) {
+	 if(evento.type == SDL_KEYDOWN) {
+	   if(evento.key.keysym.sym == SDLK_ESCAPE)
+	     return 0;
+	 }
+	 if(evento.type == SDL_QUIT)
+	   return 0;
 
-		for( ; ; ) {
-
-		while(SDL_PollEvent(&evento)) {
-			if(evento.type == SDL_KEYDOWN) {
-				if(evento.key.keysym.sym == SDLK_ESCAPE)
-					return 0;
-			}
-
-			if(evento.type == SDL_QUIT)
-				return 0;
-
-			if(evento.type == SDL_MOUSEBUTTONDOWN) {
-                Terreno* t = mapa((int)evento.button.x/32,(int)evento.button.y/32);
-				ObjetoMapa* o = t->getContenido();
-			
-				// boton izquierdo
-				if(evento.button.button == 1){
-					printf("Seleccionaste un objeto...\n");
-
-					printf("X: %d", evento.button.x);
-					printf(" - Y: %d", evento.button.y);
-					printf(" Botón pulsado %d\n", evento.button.button);
-
-					if ( dynamic_cast<Edificio*>(o) != NULL )
-				 	{      
-						printf("Selecionaste un edifcio.\n"); 
-					} 
-					if ( dynamic_cast<Personaje*>(o) != NULL )
-				 	{      
-						printf("Selecionaste un personaje.\n"); 
-					}
-				}
-				// boton derecho
-				if(evento.button.button == 3){
-					printf("Seleccionaste un destino...\n");
-
-					printf("X: %d", evento.button.x);
-					printf(" - Y: %d", evento.button.y);
-					printf(" Botón pulsado %d\n", evento.button.button);
-
-					if ( dynamic_cast<Edificio*>(o) != NULL )
-				 	{      
-						printf("Selecionaste un edifcio.\n"); 
-					} 
-					if ( dynamic_cast<Personaje*>(o) != NULL )
-				 	{      
-						printf("Selecionaste un personaje.\n"); 
-					}
-				}
-
-			}
-		}
-	}
+	 if(evento.type == SDL_MOUSEBUTTONDOWN) {
+	   ObjetoMapa* o = mapa((int)evento.button.x/mapa.getLongCasilla(),(int)evento.button.y/mapa.getLongCasilla())->getContenido();
+	   printf("X: %d - Y: %d\n", evento.button.x,evento.button.y);
+	   if(evento.button.button == 1){
+	     personaje=dynamic_cast<Personaje*>(o);
+	   } else {
+	     if ( personaje ) personaje->caminar(evento.button.x,evento.button.y);
+	   }
+	 }
+       }
+     }
 }
-
-
-
