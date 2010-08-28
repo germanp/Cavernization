@@ -37,6 +37,7 @@ template <class InstanciaTile> SDL_Tile<InstanciaTile>::~SDL_Tile(){
   if ( cantObj==0 ) {
     SDL_FreeSurface(tile);
     tile=NULL;
+    printf("Liberando tile %s...\n",getTileFile());
   }
 }
 

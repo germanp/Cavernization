@@ -15,7 +15,7 @@
 ObjetoMapa::ObjetoMapa(int x, int y) : x(x), y(y){}
 
 ObjetoMapa::ObjetoMapa(){
-  printf("Creado\n");
+  printf("Creado ObjetoMapa\n");
 }
 
 ObjetoMapa::~ObjetoMapa(){}
