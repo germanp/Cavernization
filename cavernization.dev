@@ -1,7 +1,7 @@
 [Project]
 FileName=cavernization.dev
 Name=cavernization
-UnitCount=56
+UnitCount=57
 Type=0
 Ver=1
 ObjFiles=
@@ -11,7 +11,7 @@ PrivateResource=
 ResourceIncludes=
 MakeIncludes=
 Compiler=-I"<INCLUDE>\SDL" -Dmain=SDL_main_@@_
-CppCompiler=-I"D:\Documents and Settings\hola\Mis documentos\braian\SDL-1.2.14\include\SDL" -Dmain=SDL_main_@@_-I"logica"_@@_-I"vista"_@@_-I"entrada"_@@_
+CppCompiler=-I"D:\braian\programación concurrente\SDL\SDL-1.2.14\include" -Dmain=SDL_main_@@_-I"logica"_@@_-I"vista"_@@_-I"entrada"_@@_
 Linker=-lmingw32 -lSDL_Image -lSDLmain -lSDL -liberty_@@_
 IsCpp=1
 Icon=
@@ -20,7 +20,7 @@ ObjectOutput=
 OverrideOutput=0
 OverrideOutputName=cavernization.exe
 HostApplication=
-Folders=entrada,logica,vista
+Folders=colisiones,entrada,logica,vista
 CommandLine=
 UseCustomMakefile=0
 CustomMakefile=Makefile
@@ -601,6 +601,16 @@ BuildCmd=
 FileName=vista\tiles.cpp
 CompileCpp=1
 Folder=vista
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit57]
+FileName=colisiones\colisiones.cpp
+CompileCpp=1
+Folder=colisiones
 Compile=1
 Link=1
 Priority=1000

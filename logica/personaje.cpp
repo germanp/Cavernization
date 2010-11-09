@@ -67,3 +67,19 @@ int Personaje::_caminar(){
   printf("Moviendo a casilla (%d,%d).\n",x/mapa.getLongCasilla(),y/mapa.getLongCasilla());
   return 1;
 }
+
+int Personaje::getX(){
+    return x;
+}
+
+int Personaje::getY(){
+    return y;
+}
+
+int Personaje::getAlto(){
+    return alto;
+}
+
+int Personaje::getAncho(){
+    return ancho;
+}

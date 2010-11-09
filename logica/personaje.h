@@ -29,6 +29,10 @@ protected:
   int fuerzaGolpe;
   int destX;
   int destY;
+  int x;
+  int y;
+  int alto;
+  int ancho;
 
   ORIENTACION orientacion;
   ESTADO estado;
@@ -94,6 +98,12 @@ protected:
    * Mata al personaje
    */
   void morir();
+  
+  int getX();
+  int getY();
+  int getAncho();
+  int getAlto();
+  
 };
 
 #endif // PERSONAJE_H
