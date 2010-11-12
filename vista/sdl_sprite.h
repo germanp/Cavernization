@@ -31,7 +31,7 @@ public:
     reduccion++;
     if ( reduccion > 2 ){
       //printf("Cuadro: %i, Total: %i, Red: %i\n",cuadro,nSprites[this->getEstado()][this->getOrientacion()],reduccion);
-      if ( cuadro == nSprites[0][0]-1 ) cuadro=0; else cuadro++;
+      if ( cuadro == nSprites[this->getOrientacion()][this->getEstado()]-1 ) cuadro=0; else cuadro++;
       reduccion=0;
     }
     return tiles[this->getOrientacion()][this->getEstado()][cuadro];

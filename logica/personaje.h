@@ -24,13 +24,12 @@ enum ESTADO {QUIETO, CAMINANDO, ATACANDO, CONSTRUYENDO};
 class Personaje : public ObjetoConDuenio{
 private:
   int _caminar();
+  Personaje(const Personaje& c){}
 protected:
   int velocidad;
   int fuerzaGolpe;
   int destX;
   int destY;
-  int x;
-  int y;
   int alto;
   int ancho;
 

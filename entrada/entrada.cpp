@@ -19,7 +19,8 @@
 int Entrada(SDL_Surface* s){
      SDL_Event evento;
      Mapa& mapa = *Mapa::getInstance();
-     Personaje* personaje;
+     Personaje* personaje=NULL;
+     ObjetoMapa* o;
      for( ; ; ) {
        while(SDL_PollEvent(&evento)) {
 	 if(evento.type == SDL_KEYDOWN) {
@@ -30,7 +31,7 @@ int Entrada(SDL_Surface* s){
 	   return 0;
 
 	 if(evento.type == SDL_MOUSEBUTTONDOWN) {
-	   ObjetoMapa* o = mapa((int)evento.button.x/mapa.getLongCasilla(),(int)evento.button.y/mapa.getLongCasilla())->getContenido();
+	   o = mapa((int)evento.button.x/mapa.getLongCasilla(),(int)evento.button.y/mapa.getLongCasilla())->getContenido();
 	   printf("X: %d - Y: %d\n", evento.button.x,evento.button.y);
 	   if(evento.button.button == 1){
 	     personaje=dynamic_cast<Personaje*>(o);

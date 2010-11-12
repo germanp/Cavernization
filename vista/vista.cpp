@@ -21,6 +21,9 @@
 int Vista(void* v){
   SDL_Surface* screen=(SDL_Surface*)v;
   SDL_Rect pos;
+  SDL_Vista* terreno;
+  SDL_Vista* o;
+  ObjetoMapa* objetoMapa;
   Mapa& mapa=*Mapa::getInstance();
   int y,x;
   while (1){
@@ -28,14 +31,14 @@ int Vista(void* v){
       for (x=0 ; x<mapa.getAncho(); x++){
   	pos.x=x*32;
   	pos.y=y*32;
-	SDL_Vista* terreno=dynamic_cast<SDL_Vista*>(mapa(x,y));
+	terreno=dynamic_cast<SDL_Vista*>(mapa(x,y));
 	if( terreno!=NULL ){
 	  SDL_BlitSurface(terreno->getSurface(),NULL,screen,&pos);
-	  ObjetoMapa* objetoMapa=mapa(x,y)->getContenido();
+	  objetoMapa=mapa(x,y)->getContenido();
 	  if ( objetoMapa != NULL ){
 	    pos.x=objetoMapa->getX();
 	    pos.y=objetoMapa->getY();
-	    SDL_Vista* o=dynamic_cast<SDL_Vista*>(objetoMapa);
+	    o=dynamic_cast<SDL_Vista*>(objetoMapa);
 	    if( o != NULL ) SDL_BlitSurface(o->getSurface(),NULL,screen,&pos);
 	  }
 	}
@@ -46,18 +49,18 @@ int Vista(void* v){
   }
 }
 
-SDL_Surface** Cargar_Tiles(const char* tmpl, int n){
-  SDL_Surface** s;
-  int i;
-  char aux[100];
-  s=(SDL_Surface**)malloc(sizeof(SDL_Surface*)*n);
+// SDL_Surface** Cargar_Tiles(const char* tmpl, int n){
+//   SDL_Surface** s;
+//   int i;
+//   char aux[100];
+//   s=(SDL_Surface**)malloc(sizeof(SDL_Surface*)*n);
 
-  for (i=0; i<n;i++) {
-    sprintf(aux,tmpl,n);
-    s[i]=IMG_Load(aux);
-    if ( s[i] == NULL ) {
-      printf("%s\n",IMG_GetError());
-    }
-  }
-  return s;
-}
+//   for (i=0; i<n;i++) {
+//     sprintf(aux,tmpl,n);
+//     s[i]=IMG_Load(aux);
+//     if ( s[i] == NULL ) {
+//       printf("%s\n",IMG_GetError());
+//     }
+//   }
+//   return s;
+// }
