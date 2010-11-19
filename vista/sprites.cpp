@@ -16,11 +16,11 @@
 #include "string.h"
 
 template<> void SDL_Sprite<Fiel>::getSpriteData(struct SpriteData* data){
-  const char* tmpl="fiel_%d_%d_%02d.png";
+  const char* tmpl="fiel%1d%1d%02d.png";
   strncpy(data->tmpl,tmpl,strlen(tmpl)+1);
-  data->nEstados=1;
+  data->nEstados=2;
   data->nOrientaciones=1;
-  (data->nSprites)[0][0]=12;
+  //  (data->nSprites)[0][0]=12;
   return;
 }
 

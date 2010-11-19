@@ -21,7 +21,8 @@ Personaje::Personaje(int x,int y) : ObjetoConDuenio(x,y), estado(QUIETO), orient
 void Personaje::caminar(int destX, int destY){
   this->destX=destX;
   this->destY=destY;
-  //  this->estado=CAMINANDO;
+  this->estado=CAMINANDO;
+  printf("Estado: %d\n",this->estado);
   if ( thrAccion ) SDL_KillThread(thrAccion);
   this->thrAccion = SDL_CreateThread(Personaje::entCaminar,this);
 }
