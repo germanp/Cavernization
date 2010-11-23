@@ -9,6 +9,7 @@
 //
 #include "fiel.h"
 
+
 struct SpriteData {
   char tmpl[100];
   unsigned int nEstados;
@@ -27,14 +28,13 @@ private:
 public:
   SDL_Sprite();
   ~SDL_Sprite();
+
   SDL_Surface* getSurface(){
+    int est=this->getEstado();
+    int orient=this->getOrientacion();
     reduccion++;
-    if ( reduccion > 2 ){
-      if ( cuadro == nSprites[this->getEstado()][this->getOrientacion()]-1 ) cuadro=0; else cuadro++;
-      reduccion=0;
-    }
-    //printf("Cuadro: %i, Total: %i, Red: %i\n",cuadro,nSprites[this->getEstado()][this->getOrientacion()],reduccion);
-    return tiles[this->getEstado()][this->getOrientacion()][cuadro];
+    if ( cuadro >= nSprites[est][orient] ) cuadro=0; else cuadro++;
+    return tiles[est][orient][cuadro];
   }
   static void getSpriteData(struct SpriteData* data);
 };
@@ -43,7 +43,10 @@ template<class InstanciaTile> int SDL_Sprite<InstanciaTile>::cantObj=0;
 template<class InstanciaTile> SDL_Surface**** SDL_Sprite<InstanciaTile>::tiles=NULL;
 template<class InstanciaTile> int SDL_Sprite<InstanciaTile>::nSprites[20][20];
 
-template <class InstanciaTile> SDL_Sprite<InstanciaTile>::SDL_Sprite():InstanciaTile(),SDL_Vista(), cuadro(0), reduccion(0) {
+template <class InstanciaTile> SDL_Sprite<InstanciaTile>::SDL_Sprite() :
+  InstanciaTile(),
+  SDL_Vista(),
+  cuadro(0), reduccion(0) {
   if ( tiles == NULL ){
     char aux[100],tmpl[100];
     int estado,orientacion,sprite;
@@ -76,7 +79,7 @@ template <class InstanciaTile> SDL_Sprite<InstanciaTile>::SDL_Sprite():Instancia
     	  if ( tiles[estado][orientacion][sprite] != NULL )
 	    printf("Cargando %s\n",aux);
     	}
-	nSprites[estado][orientacion]=sprite;
+	nSprites[estado][orientacion]=sprite-1;
       }
     }
   }

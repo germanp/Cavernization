@@ -16,7 +16,7 @@
 #include <SDL.h>
 #include "terreno.h"
 
-#define FREC_PINTADO 1000/50 // Tiempo de refrezco 50 veces por segundo
+#define FREC_PINTADO 1000/12 // Tiempo de refrezco 12 veces por segundo
 
 /** 
  * Esta función es la que dibuja en la pantalla a partir del mapa

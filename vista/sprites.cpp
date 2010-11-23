@@ -15,6 +15,7 @@
 #include "fiel.h"
 #include "string.h"
 
+
 template<> void SDL_Sprite<Fiel>::getSpriteData(struct SpriteData* data){
   const char* tmpl="fiel%1d%1d%02d.png";
   strncpy(data->tmpl,tmpl,strlen(tmpl)+1);
