@@ -10,6 +10,5 @@
 
 #include "objetoconduenio.h"
 
-ObjetoConDuenio::ObjetoConDuenio(int x, int y) : ObjetoMapa(x,y) {}
-
-ObjetoConDuenio::ObjetoConDuenio() : ObjetoMapa() {}
+ObjetoConDuenio::ObjetoConDuenio(int x, int y, int ancho, int alto) :
+  ObjetoMapa(x, y, ancho, alto) {}

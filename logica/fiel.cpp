@@ -17,9 +17,4 @@ void Fiel::construir(Edificio e){
 void Fiel::talar(Arbol a){
 }
 
-Fiel::Fiel(){}
-
-Fiel::Fiel(int x, int y) : Personaje(x,y){ }
-
-Fiel::~Fiel(){
-}
+Fiel::~Fiel(){ }

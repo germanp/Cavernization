@@ -12,10 +12,6 @@
 #include "objetomapa.h"
 #include <stdio.h>
 
-ObjetoMapa::ObjetoMapa(int x, int y) : x(x), y(y){}
-
-ObjetoMapa::ObjetoMapa(){
-  printf("Creado ObjetoMapa\n");
-}
+ObjetoMapa::ObjetoMapa(unsigned int x, unsigned int y, unsigned int ancho, unsigned int alto) : x(x), y(y), ancho(ancho), alto(alto){}
 
 ObjetoMapa::~ObjetoMapa(){}
