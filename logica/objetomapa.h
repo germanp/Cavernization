@@ -20,13 +20,15 @@ class ObjetoMapa {
   /**
    * Variable para la medidas y posicion del objeto
    */
-  int ancho,alto,x,y;
+  unsigned int ancho,alto,x,y;
  public:
-  ObjetoMapa(int x, int y);
+  ObjetoMapa(unsigned int x, unsigned int y, unsigned int ancho, unsigned int alto);
   ObjetoMapa();
   int getX(){ return x; }
   int getY(){ return y; }
-  void setPos(int x, int y){ this->x=x; this->y=y; }
+  int getAncho(){ return ancho; }
+  int getAlto(){ return alto; }
+  virtual void setPos(unsigned int x, unsigned int y){ this->x=x; this->y=y; }
   virtual ~ObjetoMapa();
 };
 #endif // OBJETO_MAPA_H

@@ -19,8 +19,7 @@ class Edificio:public ObjetoConDuenio {
  protected:
   int vida;
  public:
-  Edificio(int x, int y) : ObjetoConDuenio(x,y){}
- Edificio() : ObjetoConDuenio(){}
+ Edificio(int x, int y, int ancho, int alto) : ObjetoConDuenio(x,y,ancho,alto){}
 };
 
 #endif // EDIFICIO_H

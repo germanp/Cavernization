@@ -20,7 +20,7 @@ class ObjetoConDuenio: public ObjetoMapa{
  protected:
   int vida;
  public:
-  ObjetoConDuenio(int x, int y);
+  ObjetoConDuenio(int x, int y, int ancho, int alto);
   ObjetoConDuenio();
 };
 

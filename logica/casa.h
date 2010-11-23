@@ -17,8 +17,8 @@
 
 class Casa: public Edificio{
  public:
-  Casa():Edificio(){}
-  Casa(int x, int y): Edificio(x,y){ }
+  Casa(int x, int y) : Edificio(x,y,32,32){ }
+  Casa() : Edificio(0,0,32,32) {}
   ~Casa();
   //  Fiel* nuevoFiel();
 };

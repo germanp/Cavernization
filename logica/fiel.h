@@ -18,8 +18,8 @@
 
 class Fiel : public Personaje{
  public:
-  Fiel();
-  Fiel(int x, int y);
+  Fiel() : Personaje(0,0,21,26,3) {}
+  Fiel(unsigned int x, unsigned int y) : Personaje(x,y,21,26,3){ }
   ~Fiel();
   /**
    * Ordena a un fiel a construir un edificio

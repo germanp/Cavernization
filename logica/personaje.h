@@ -25,13 +25,10 @@ class Personaje : public ObjetoConDuenio{
 private:
   int _caminar();
   Personaje(const Personaje& c){}
-protected:
   int velocidad;
   int fuerzaGolpe;
   int destX;
   int destY;
-  int alto;
-  int ancho;
 
   ORIENTACION orientacion;
   ESTADO estado;
@@ -47,7 +44,7 @@ protected:
    * 
    * @return 
    */
-  Personaje(int x, int y);
+  Personaje(unsigned int x, unsigned int y, unsigned int ancho, unsigned int alto, unsigned int velocidad);
   /** 
    * Construye el personaje pero deja las posiciones de x e y sin
    * iniciar. Obligatoriamente se debe llamar a setPos(x,y) luego de
@@ -56,13 +53,19 @@ protected:
    * el constructor.
    * @return 
    */
-  Personaje();
+
   virtual ~Personaje();
+  
+  /**
+   * Establece la posición inicial del personaje.
+   *
+   */
+  void setPos(unsigned int x, unsigned int y);
   /**
    * Devuelve el estado del personaje
    * @return int
    */
-  int getEstado(){ return estado; }
+  ESTADO getEstado(){ return estado; }
   /**
    * Devuelve la orientacion del personaje
    * @return int
@@ -72,7 +75,7 @@ protected:
    * Ordena caminar al personaje hasta una posicion en el mapa
    * @param int x, int y
    */
-  void caminar(int x, int y);
+  void caminar(unsigned int x, unsigned int y);
   /**
    * Ordena atacar a un personaje
    * @param Personaje p
@@ -97,12 +100,6 @@ protected:
    * Mata al personaje
    */
   void morir();
-  
-  int getX();
-  int getY();
-  int getAncho();
-  int getAlto();
-  
 };
 
 #endif // PERSONAJE_H
