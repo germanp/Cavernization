@@ -15,7 +15,6 @@
 
 #include "objetomapa.h"
 #include "edificio.h"
-#include "personaje.h"
 #include <list>
 #include <unistd.h>
 
@@ -40,8 +39,18 @@ class Terreno{
  virtual bool esPisable(){
    if ( contenido ) return false; else return true;
  }
- virtual void ponerObjeto(ObjetoMapa* o){
-   this->contenido=o;
+ virtual bool ponerObjeto(ObjetoMapa* o){
+   if ( this->contenido == NULL ) {
+     this->contenido=o;
+     printf("Contenido: %i\n",contenido);
+     return 1;
+   } else {
+     return 0;
+   }
+ }
+ void quitarObjeto(){
+   //printf("Contenido: \n",contenido);
+   this->contenido=NULL;
  }
  ObjetoMapa* getContenido(){ return contenido; }
 };

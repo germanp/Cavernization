@@ -12,18 +12,21 @@
  * @section TODO
  *  <>
  */
-
 #include <SDL_thread.h>
 #include "objetoconduenio.h"
 #include "edificio.h"
 #include "monumento.h"
+#include "terreno.h"
+#include "mapa.h"
 
 enum ORIENTACION {S,SE,E,NE,N,NO,O,SO};
 enum ESTADO {QUIETO, CAMINANDO, ATACANDO, CONSTRUYENDO};
 
 class Personaje : public ObjetoConDuenio{
 private:
+  Terreno* casilla;
   int _caminar();
+  bool desplazar();
   Personaje(const Personaje& c){}
   int velocidad;
   int fuerzaGolpe;
@@ -44,23 +47,11 @@ private:
    * 
    * @return 
    */
-  Personaje(unsigned int x, unsigned int y, unsigned int ancho, unsigned int alto, unsigned int velocidad);
-  /** 
-   * Construye el personaje pero deja las posiciones de x e y sin
-   * iniciar. Obligatoriamente se debe llamar a setPos(x,y) luego de
-   * la construcción usando este constructor. Se utiliza debido a que
-   * la implementación de SDL_Sprite dificulta el uso de parámetros en
-   * el constructor.
-   * @return 
-   */
+  Personaje(unsigned int x, unsigned int y, unsigned int ancho, unsigned int alto, unsigned int velocidad, Terreno* casilla);
 
   virtual ~Personaje();
-  
-  /**
-   * Establece la posición inicial del personaje.
-   *
-   */
-  void setPos(unsigned int x, unsigned int y);
+
+  void setCasilla(Terreno* c);  
   /**
    * Devuelve el estado del personaje
    * @return int
@@ -100,6 +91,8 @@ private:
    * Mata al personaje
    */
   void morir();
+  
+  bool cambiarCasilla(Terreno* nvaCasilla);
 };
 
 #endif // PERSONAJE_H

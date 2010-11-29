@@ -10,7 +10,6 @@
  */
 
 #include "personaje.h"
-#include "mapa.h"
 #include "SDL.h"
 
 
@@ -19,18 +18,20 @@
 // }
 
 Personaje::Personaje(
-  unsigned int x, unsigned int y, unsigned int ancho, unsigned int alto, unsigned int velocidad
+  unsigned int x, unsigned int y, unsigned int ancho, unsigned int alto, unsigned int velocidad, Terreno* casillla
 		     ) : ObjetoConDuenio(x,y,ancho,alto),
 			 estado(QUIETO),
 			 orientacion(S), 
 			 thrAccion(NULL),
 			 velocidad(velocidad) 
-{}
+{
+  this->casilla=casilla;
+}
 
 void Personaje::caminar(unsigned int destX, unsigned int destY){
   if ( thrAccion ) SDL_KillThread(thrAccion);
-  this->destX=destX-getAncho()/2;
-  this->destY=destY-getAlto();
+  this->destX=destX;
+  this->destY=destY;
   this->thrAccion = SDL_CreateThread(Personaje::entCaminar,this);
 }
 void Personaje::atacar(Personaje p){
@@ -61,38 +62,56 @@ Personaje::~Personaje(){
   
 }
 
-void Personaje::setPos(unsigned int x,unsigned int y){
-  this->x=x-getAncho()/2;
-  this->y=y;
-  printf("setPos(): x=%d, y=%d\n",x,y);
- }
-
 int Personaje::entCaminar(void* t){
   Personaje* pthis=(Personaje*)t;
   return pthis->_caminar();
 }
 
-int Personaje::_caminar(){
-  //  Mapa& mapa = *Mapa::getInstance();
-  unsigned int antMapaX, antMapaY;
+bool Personaje::desplazar(){
   unsigned int mapaX, mapaY;
+  Mapa& mapa = *Mapa::getInstance();
   this->estado=CAMINANDO;
   while 
     ( (x > destX+velocidad) || (x < destX-velocidad) 
       || (y > destY+velocidad) || (y < destY-velocidad) ) 
     {
-    //   mapaX=destX/mapa.getLongCasilla();
-    //   mapaY=destY/mapa.getLongCasilla();
-    // //mapa(mapaX,mapaY)->ponerObjeto((ObjetoMapa*) this);
-      
-    //   antMapaX=destX/mapa.getLongCasilla();
-    //   antMapaY=destY/mapa.getLongCasilla();
-  
-    // //mapa(antMapaX,antMapaY)->ponerObjeto(NULL);
       x+=destX>x?velocidad:-velocidad;
       y+=destY>y?velocidad:-velocidad;
+
+      mapaX=x/mapa.getLongCasilla();
+      mapaY=y/mapa.getLongCasilla();
+
+      Terreno* t=mapa(mapaX,mapaY);
+      if ( t != casilla ) {
+	if ( !cambiarCasilla(t) ) {
+	  return 0;
+	}
+      }
       SDL_Delay(100);
     }
   this->estado=QUIETO;
   return 1;
 }
+
+int Personaje::_caminar(){
+  desplazar();
+  return 1;
+}
+
+void Personaje::setCasilla(Terreno* c){
+  this->casilla=c;
+}
+
+bool Personaje::cambiarCasilla(Terreno* nvaCasilla){
+    ///////////
+    // MUTEX //
+    ///////////
+  printf("Casilla: %d\n",casilla);
+  printf("nvaCasilla: %d\n",nvaCasilla);
+  if ( nvaCasilla->ponerObjeto(this) ) {
+      casilla->quitarObjeto();
+      casilla=nvaCasilla;
+      return 1;
+    } else 
+      return 0;
+  }

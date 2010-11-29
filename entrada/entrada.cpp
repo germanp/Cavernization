@@ -14,6 +14,7 @@
 #include <SDL_image.h>
 #include <mapa.h>
 #include "entrada.h"
+#include "personaje.h"
 
 #define  FREC_INPUT 100 // Tiempo de refrezco 10 veces por segundo
 int Entrada(SDL_Surface* s){

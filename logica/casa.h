@@ -17,8 +17,8 @@
 
 class Casa: public Edificio{
  public:
-  Casa(int x, int y) : Edificio(x,y,32,32){ }
-  Casa() : Edificio(0,0,32,32) {}
+  Casa(int x, int y) : Edificio(x,y,30,50){ }
+  Casa() : Edificio(0,0,30,50) {}
   ~Casa();
   //  Fiel* nuevoFiel();
 };

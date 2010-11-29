@@ -36,8 +36,8 @@ int Vista(void* v){
 	  SDL_BlitSurface(terreno->getSurface(),NULL,screen,&pos);
 	  objetoMapa=mapa(x,y)->getContenido();
 	  if ( objetoMapa != NULL ){
-	    pos.x=objetoMapa->getX();
-	    pos.y=objetoMapa->getY();
+	    pos.x=objetoMapa->getX()-(objetoMapa->getAncho()/2);
+	    pos.y=objetoMapa->getY()-(objetoMapa->getAlto());
 	    o=dynamic_cast<SDL_Vista*>(objetoMapa);
 	    if( o != NULL ) SDL_BlitSurface(o->getSurface(),NULL,screen,&pos);
 	  }

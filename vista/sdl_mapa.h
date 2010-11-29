@@ -40,16 +40,18 @@ public:
       case 'R':{
 	Pasto* p1=new SDL_Tile<Pasto>();
 	Fiel* f1=new SDL_Sprite<Fiel>();
-	if ( ANCHO ) f1->setPos((i%ANCHO)*getLongCasilla(),(i/ANCHO)*getLongCasilla());
+	if ( ANCHO ) 
+	  f1->setPos((i%ANCHO)*getLongCasilla()+getLongCasilla()/2,(i/ANCHO)*getLongCasilla()+f1->getAlto());
 	else f1->setPos(i,0);
       	p1->ponerObjeto(f1);
+	f1->setCasilla(p1);
       	mapa[i]=p1;
       	break;
       }
       case 'A':{
 	Pasto* p1=new SDL_Tile<Pasto>();
 	Casa* c1=new SDL_Tile<Casa>();
-	if ( ANCHO ) c1->setPos((i%ANCHO)*getLongCasilla(),((i/ANCHO)-1)*getLongCasilla());
+	if ( ANCHO ) c1->setPos((i%ANCHO)*getLongCasilla()+getLongCasilla()/2,(i/ANCHO)*getLongCasilla()+getLongCasilla());
 	else c1->setPos(i,0);
 	p1->ponerObjeto(c1);
 	mapa[i]=p1;
