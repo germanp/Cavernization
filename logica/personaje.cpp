@@ -11,6 +11,10 @@
 
 #include "personaje.h"
 #include "SDL.h"
+#include <math.h>
+
+
+#define PI 3.14159265
 
 
 // Personaje::Personaje(): ObjetoConDuenio(), estado(QUIETO), orientacion(S), thrAccion(NULL) {
@@ -69,23 +73,50 @@ int Personaje::entCaminar(void* t){
 
 bool Personaje::desplazar(){
   unsigned int mapaX, mapaY;
+  unsigned int antX, antY;
   Mapa& mapa = *Mapa::getInstance();
   this->estado=CAMINANDO;
+  
+  float alfa=atan2(((double)destY-(double)y),((double)destX-(double)x));
+  printf("Opuesto: %f\n",((double)destY-(double)y));
+  printf("Adyacente: %f\n",((double)destX-(double)x));
+  printf("Ángulo: %f\n",alfa);
+  if ( alfa > -0.375 && alfa < 0.375 ){
+    printf("Mira al Este.\n");
+  } else if ( alfa < -0.375 && alfa > -1.125 ){
+    printf("Mira al NorEste.\n");
+  } else if ( alfa < -1.125  && alfa > -1.875 ) {
+    printf("Mira al Norte.\n");
+  } else if ( alfa < -1.875 && alfa > -2.625 ){
+    printf("Mira al NorOeste.\n");
+  } else if ( alfa < -2.625 || alfa > 2.625  ){
+    printf("Mira al Oeste.\n");
+  }  else if ( alfa < 2.625 && alfa > 1.875 ){
+    printf("Mira al SudOeste.\n");
+  } else if ( alfa < 1.875 && alfa > 1.125 ){
+     printf("Mira al Sur.\n");
+  } else /* if ( alfa < 1.125  && alfa >0.375 ) */ {
+       printf("Mira al SudEste.\n");
+  }
+
   while 
     ( (x > destX+velocidad) || (x < destX-velocidad) 
       || (y > destY+velocidad) || (y < destY-velocidad) ) 
     {
+      antX=x;
+      antY=y;
       x+=destX>x?velocidad:-velocidad;
       y+=destY>y?velocidad:-velocidad;
-
       mapaX=x/mapa.getLongCasilla();
       mapaY=y/mapa.getLongCasilla();
 
       Terreno* t=mapa(mapaX,mapaY);
       if ( t != casilla ) {
-	if ( !cambiarCasilla(t) ) {
-	  return 0;
-	}
+  	if ( !cambiarCasilla(t) ) {
+  	  x=antX;
+  	  y=antY;
+  	  return 0;
+  	}
       }
       SDL_Delay(100);
     }
@@ -106,8 +137,6 @@ bool Personaje::cambiarCasilla(Terreno* nvaCasilla){
     ///////////
     // MUTEX //
     ///////////
-  printf("Casilla: %d\n",casilla);
-  printf("nvaCasilla: %d\n",nvaCasilla);
   if ( nvaCasilla->ponerObjeto(this) ) {
       casilla->quitarObjeto();
       casilla=nvaCasilla;

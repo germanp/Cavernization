@@ -42,14 +42,12 @@ class Terreno{
  virtual bool ponerObjeto(ObjetoMapa* o){
    if ( this->contenido == NULL ) {
      this->contenido=o;
-     printf("Contenido: %i\n",contenido);
      return 1;
    } else {
      return 0;
    }
  }
  void quitarObjeto(){
-   //printf("Contenido: \n",contenido);
    this->contenido=NULL;
  }
  ObjetoMapa* getContenido(){ return contenido; }

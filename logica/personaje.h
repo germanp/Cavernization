@@ -51,7 +51,9 @@ private:
 
   virtual ~Personaje();
 
-  void setCasilla(Terreno* c);  
+  void setCasilla(Terreno* c);
+
+  //  virtual void setPos(unsigned int x, unsigned int y){ this->x=x+ancho/2; this->y=y; }
   /**
    * Devuelve el estado del personaje
    * @return int
