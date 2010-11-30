@@ -32,8 +32,9 @@ public:
   SDL_Surface* getSurface(){
     int est=this->getEstado();
     int orient=this->getOrientacion();
-    reduccion++;
+
     if ( cuadro >= nSprites[est][orient] ) cuadro=0; else cuadro++;
+    printf("Estado: %d - Orientacion: %d\n",est,orient);
     return tiles[est][orient][cuadro];
   }
   static void getSpriteData(struct SpriteData* data);

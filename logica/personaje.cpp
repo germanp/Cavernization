@@ -82,21 +82,29 @@ bool Personaje::desplazar(){
   printf("Adyacente: %f\n",((double)destX-(double)x));
   printf("Ángulo: %f\n",alfa);
   if ( alfa > -0.375 && alfa < 0.375 ){
+    this->orientacion=E;
     printf("Mira al Este.\n");
   } else if ( alfa < -0.375 && alfa > -1.125 ){
+    this->orientacion=NE;
     printf("Mira al NorEste.\n");
   } else if ( alfa < -1.125  && alfa > -1.875 ) {
+    this->orientacion=N;
     printf("Mira al Norte.\n");
   } else if ( alfa < -1.875 && alfa > -2.625 ){
+    this->orientacion=NO;
     printf("Mira al NorOeste.\n");
   } else if ( alfa < -2.625 || alfa > 2.625  ){
+    this->orientacion=O;
     printf("Mira al Oeste.\n");
   }  else if ( alfa < 2.625 && alfa > 1.875 ){
+    this->orientacion=SO;
     printf("Mira al SudOeste.\n");
   } else if ( alfa < 1.875 && alfa > 1.125 ){
+    this->orientacion=S;
      printf("Mira al Sur.\n");
   } else /* if ( alfa < 1.125  && alfa >0.375 ) */ {
-       printf("Mira al SudEste.\n");
+    this->orientacion=SE;
+    printf("Mira al SudEste.\n");
   }
 
   while 
