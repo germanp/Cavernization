@@ -15,8 +15,14 @@
 
 #include <SDL.h>
 #include "terreno.h"
+#include "mapa.h"
+#include "objetomapa.h"
+#include "sdl_vista.h"
+#include "main.h"
+#include "sdl_jugador.h"
 
-#define FREC_PINTADO 1000/12 // Tiempo de refrezco 12 veces por segundo
+
+#define FREC_PINTADO 1000/20 // Tiempo de refrezco 20 veces por segundo
 
 /** 
  * Esta función es la que dibuja en la pantalla a partir del mapa
@@ -27,27 +33,11 @@
  */
 int Vista(void* v);
 
-/** 
- * Carga los tiles en un array SDL_Surfaces. El vector es alocado con
- * malloc() y debe ser liberado con free().
+/**
+ * Carga un tile desde un archivo en DataDir() y lo devuelve como un
+ * surface de SDL.
  *
- * @param tmpl Cadena de texto template al estilo printf con el path
- * de las imágenes. Debe contener un %d para ir numerando las imágenes.
- * 
- * @return Vector de SDL_Surface* con los tiles cargados
  */
-SDL_Surface** Cargar_Tiles(const char* tmpl, int n);
 
-/** 
- * Libera un array de SDL_Surfaces
- * 
- * @param s Array de surfaces a liberar.
- */
-void Liberar_Tiles(SDL_Surface** s);
-
-
-Terreno** Cargar_Mapa();
-
-Terreno** leerMapa(const char* file,int* width);
-
+SDL_Surface* cargarTile(const char* tileFile);
 #endif // VISTA_H

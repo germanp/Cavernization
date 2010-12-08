@@ -6,7 +6,7 @@ CXX=g++ $(CFLAGS) $(INCS)
 RM=rm -f
 AR=ar -rcs
 
-OBJS=entrada.o
+OBJS=sdl_jugador.o
 
 .SUFFIXES: .o .cpp
 

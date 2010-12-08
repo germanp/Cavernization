@@ -34,7 +34,7 @@ public:
     int orient=this->getOrientacion();
 
     if ( cuadro >= nSprites[est][orient] ) cuadro=0; else cuadro++;
-    printf("Estado: %d - Orientacion: %d\n",est,orient);
+
     return tiles[est][orient][cuadro];
   }
   static void getSpriteData(struct SpriteData* data);

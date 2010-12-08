@@ -10,15 +10,11 @@
  * - Destruir los objetos correctamente.
  */
 
-
-#include <SDL_thread.h>
-#include <SDL.h>
-#include <errno.h>
-#include "entrada.h"
+#include "main.h"
 #include "vista.h"
 #include "terreno.h"
-#include "sdl_mapa.h"
-#include "main.h"
+#include "sdl_builder.h"
+#include "sdl_jugador.h"
 
 /**
  * El main lanza el thread que dibuja la pantalla
@@ -29,14 +25,15 @@
 
 int main (int argc, char* argv[]){
      SDL_Thread* thr_vista;
-     SDL_Surface* screen;
+     SDL_Surface* screen; //
+     SDL_Jugador* jug=new SDL_Jugador();
      char map_file[100];
      screen=Iniciar_Video(640,480,16,"Cavernization",SDL_SWSURFACE);
-     SDL_Mapa* mapa=SDL_Mapa::getInstance();
      sprintf(map_file,"%smapa.map",Data_Dir());
-     mapa->cargarMapa(map_file);
-     thr_vista=SDL_CreateThread(Vista,(void*)screen);
-     Entrada(screen);
+     Partida* p=new Partida(map_file,new SDL_Builder(),jug);
+     P_Vista pVista = {screen,jug};
+     thr_vista=SDL_CreateThread(Vista,&pVista);
+     jug->entrada(screen);
      SDL_KillThread(thr_vista);
      SDL_FreeSurface(screen);
      return 0;

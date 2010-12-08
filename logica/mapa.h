@@ -12,28 +12,23 @@
 #define MAPA_H
 
 #include "terreno.h"
+#include "builder.h"
+#include "objetomapa.h"
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 class Mapa {
  protected:
-  int ANCHO;
-  int ALTO;
+  const int ANCHO;
+  const int ALTO;
   const int LONGCASILLA;
   Terreno** mapa;
-  /** 
-   * Carga un mapa en un vector de tipo Terreno.
-   *
-   * @param file Ruta del archivo de datos para cargar 
-   * 
-   */
-
-  // Código del Singletton
- Mapa():LONGCASILLA(32) {
-    ANCHO=0;
-    ALTO=0;
-  }
+  Builder* build;
+  Mapa(Terreno**,Builder*,unsigned int, unsigned int, unsigned int);
   virtual ~Mapa();
   static Mapa* _instance;
-  virtual Terreno** cargarMapa(const char* file)=0;
  private:
   Mapa(const Mapa&);
   Mapa& operator=(const Mapa&);
@@ -41,7 +36,7 @@ class Mapa {
   int getAncho(){ return ANCHO; }
   int getAlto(){ return ALTO; }
   int getLongCasilla(){ return LONGCASILLA; }
-
+  static int cargarMapa(const char*,Builder*);
   virtual void liberarMapa();
 
   /**
@@ -50,6 +45,7 @@ class Mapa {
    * @return
    */
   static Mapa* getInstance(){ return _instance; }
+
   /** 
    * Devuelve la posición del mapa especificada por x e y.
    * Esta es la versión para usar cuando guardamos el mapa en un

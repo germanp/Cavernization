@@ -12,6 +12,10 @@
 #define MAIN_H
 
 #include <SDL.h>
+#include <SDL_thread.h>
+#include "sdl_jugador.h"
+#include <errno.h>
+#include "partida.h"
 
 /** 
  * Inicia una ventana con SDL y le setea el título.
@@ -25,6 +29,12 @@
  * @return 
  */
 SDL_Surface* Iniciar_Video(int w, int h, int depth, const char* titulo, int flags);
+
+typedef struct
+{
+  SDL_Surface* screen;
+  SDL_Jugador* jug;
+} P_Vista;
 
 const char* Cavernization_Dir();
 const char* _Cavernization_Dir();

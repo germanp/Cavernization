@@ -2,7 +2,7 @@ CPP=g++
 CC=gcc
 LIBS=-lSDL -lSDL_image
 BIN=cavernization
-INCS=-I$(PWD)/logica -I$(PWD)/vista -I$(PWD)/entrada
+INCS=-I$(PWD)/logica -I$(PWD)/vista -I$(PWD)/entrada -I$(PWD)
 CFLAGS=$(INCS) -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -g
 CXXFLAGS=$(CFLAGS)
 RM = rm -f

@@ -1,10 +1,10 @@
 #ifndef SDL_TILE_H
 #define SDL_TILE_H
 
-#include "sdl_vista.h"
 #include <SDL.h>
 #include <SDL_image.h>
-#include "../main.h"
+#include "sdl_vista.h"
+#include "main.h"
 
 template <class InstanciaTile> class SDL_Tile : public InstanciaTile, public SDL_Vista {
 private:

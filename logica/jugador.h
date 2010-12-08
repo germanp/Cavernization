@@ -6,8 +6,8 @@
  * @author braian <divided-by_joy@hotmail.com>
  * @date   Fri Jun  11 20:55:58 2010
  *
- * @brief <Permite al jugador interactuar con el juego y manejar  
- *         los difirente personajes que possee.>
+ * @brief Permite al jugador interactuar con el juego y manejar  
+ *         los difirente personajes que possee.
  *
  * @section TODO
  *  <>
@@ -17,8 +17,7 @@
 #include "monumento.h"
 #include "personaje.h"
 
-class Jugador{
-  
+class Jugador {
  /* private: */
  /*  /\** */
  /*   * Cantidad de mana que posee el jugador */
