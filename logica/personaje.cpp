@@ -81,20 +81,28 @@ bool Personaje::desplazar(){
 
   if ( alfa > -0.375 && alfa < 0.375 ){
     this->orientacion=E;
+    //    printf("Mira al Este.\n");
   } else if ( alfa < -0.375 && alfa > -1.125 ){
     this->orientacion=NE;
+    //printf("Mira al NorEste.\n");
   } else if ( alfa < -1.125  && alfa > -1.875 ) {
     this->orientacion=N;
+    //printf("Mira al Norte.\n");
   } else if ( alfa < -1.875 && alfa > -2.625 ){
     this->orientacion=NO;
+    //printf("Mira al NorOeste.\n");
   } else if ( alfa < -2.625 || alfa > 2.625  ){
     this->orientacion=O;
+    //printf("Mira al Oeste.\n");
   }  else if ( alfa < 2.625 && alfa > 1.875 ){
     this->orientacion=SO;
+    //printf("Mira al SudOeste.\n");
   } else if ( alfa < 1.875 && alfa > 1.125 ){
     this->orientacion=S;
+    // printf("Mira al Sur.\n");
   } else /* if ( alfa < 1.125  && alfa >0.375 ) */ {
     this->orientacion=SE;
+    //printf("Mira al SudEste.\n");
   }
 
   while 
@@ -132,13 +140,26 @@ void Personaje::setCasilla(Terreno* c){
 }
 
 bool Personaje::cambiarCasilla(Terreno* nvaCasilla){
-    ///////////
-    // MUTEX //
-    ///////////
+    /*
+      Bloquear la casilla A
+      Bloquear la casilla B
+      Mover al personaje
+      Desbloquear la casilla A
+      Desbloquear la casilla B
+    */
+  Terreno* aux;
+  casilla->bloquear();
+  nvaCasilla->bloquear();
   if ( nvaCasilla->ponerObjeto(this) ) {
-      casilla->quitarObjeto();
-      casilla=nvaCasilla;
-      return 1;
-    } else 
-      return 0;
+    casilla->quitarObjeto();
+    aux=casilla;
+    casilla=nvaCasilla;
+    aux->desbloquear();
+    nvaCasilla->desbloquear();
+    return 1;
+  } else {
+    casilla->desbloquear();
+    nvaCasilla->desbloquear();
+    return 0;
   }
+}

@@ -39,16 +39,21 @@ int Vista(void* v){
 	terreno=dynamic_cast<SDL_Vista*>(mapa(x,y));
 	if( terreno!=NULL ){
 	  SDL_BlitSurface(terreno->getSurface(),NULL,screen,&pos);
-	  objetoMapa=mapa(x,y)->getContenido();
-	  if ( objetoMapa != NULL ){
-	    pos.x=objetoMapa->getX()-(objetoMapa->getAncho()/2);
-	    pos.y=objetoMapa->getY()-(objetoMapa->getAlto());
-	    o=dynamic_cast<SDL_Vista*>(objetoMapa);
-	    if( o != NULL ) {
-	      SDL_BlitSurface(o->getSurface(),NULL,screen,&pos);
-	    }
-	  }
 	}
+      }
+    }
+
+    for (y=0 ; y<mapa.getAlto(); y++){
+      for (x=0 ; x<mapa.getAncho(); x++){ 
+	objetoMapa=mapa(x,y)->getContenido();
+	if ( objetoMapa != NULL ){
+	  pos.x=objetoMapa->getX()-(objetoMapa->getAncho()/2);
+	  pos.y=objetoMapa->getY()-(objetoMapa->getAlto());
+	  o=dynamic_cast<SDL_Vista*>(objetoMapa);
+	  if( o != NULL ) {
+	    SDL_BlitSurface(o->getSurface(),NULL,screen,&pos);
+	  }
+	}	
       }
     }
     objetoMapa=jug->getSeleccion();

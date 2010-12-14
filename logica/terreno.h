@@ -17,9 +17,13 @@
 #include "edificio.h"
 #include <list>
 #include <unistd.h>
+#include "SDL_mutex.h"
+#include "SDL_thread.h"
 
 
 class Terreno{
+ private:
+  SDL_mutex* mutex;
  protected:
   /**
    * Cada terreno puede contener un ObjetoMapa, ya sea una casa,
@@ -27,29 +31,41 @@ class Terreno{
    * 
    */
   ObjetoMapa* contenido;
- public:
- Terreno(){ contenido=NULL; }
- Terreno(ObjetoMapa* o){
-   this->contenido=o;
- }
+ public:        
+  int bloquear(){
+    return SDL_LockMutex(mutex);
+  }
+  int desbloquear(){
+    return SDL_UnlockMutex(mutex);
+  }
+  Terreno(){ 
+    mutex = SDL_CreateMutex();
+    contenido=NULL; 
+  }
+  Terreno(ObjetoMapa* o){
+    this->contenido=o;
+    mutex = SDL_CreateMutex();
+  }
+  virtual ~Terreno(){SDL_DestroyMutex(mutex);}
   /**
    * Permite conocer si el terreno es pisable o no. Por defecto se
    * fija si hay algo ubicado en el terreno.
    */ 
- virtual bool esPisable(){
-   if ( contenido ) return false; else return true;
- }
- virtual bool ponerObjeto(ObjetoMapa* o){
-   if ( this->contenido == NULL ) {
-     this->contenido=o;
-     return 1;
-   } else {
-     return 0;
-   }
- }
- void quitarObjeto(){
-   this->contenido=NULL;
- }
- ObjetoMapa* getContenido(){ return contenido; }
+  virtual bool esPisable(){
+    if ( contenido ) return false; else return true;
+  }
+  virtual bool ponerObjeto(ObjetoMapa* o){
+    if ( this->contenido == NULL ) {
+      this->contenido=o;
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+  void quitarObjeto(){
+    this->contenido=NULL;
+  }
+  ObjetoMapa* getContenido(){ return contenido; }
+  
 };
 #endif // TERRENO_H
