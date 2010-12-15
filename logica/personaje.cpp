@@ -131,7 +131,15 @@ bool Personaje::desplazar(){
 }
 
 int Personaje::_caminar(){
-  desplazar();
+  int i=0;
+  for(i=0;i<10;i++){
+    if ( desplazar() ){
+      i=10;
+    } else {
+      SDL_Delay(500);
+      this->estado=QUIETO;
+    }
+  }
   return 1;
 }
 
