@@ -105,27 +105,39 @@ bool Personaje::desplazar(){
     //printf("Mira al SudEste.\n");
   }
 
-  while 
-    ( (x > destX+velocidad) || (x < destX-velocidad) 
-      || (y > destY+velocidad) || (y < destY-velocidad) ) 
-    {
-      antX=x;
-      antY=y;
-      x+=destX>x?velocidad:-velocidad;
-      y+=destY>y?velocidad:-velocidad;
-      mapaX=x/mapa.getLongCasilla();
-      mapaY=y/mapa.getLongCasilla();
+  int flagX=1;
+  int flagY=1;
+  
+  while ( (flagX == 1) || (flagY == 1) ) {
+    // 
+    antY=y;
+    antX=x;
 
-      Terreno* t=mapa(mapaX,mapaY);
-      if ( t != casilla ) {
-  	if ( !cambiarCasilla(t) ) {
-  	  x=antX;
-  	  y=antY;
-  	  return 0;
-  	}
-      }
-      SDL_Delay(100);
+    if ( (x > destX+velocidad) || (x < destX-velocidad) ) {
+      x+=destX>x?velocidad:-velocidad;
+    } else {
+      flagX=0;
     }
+
+    if ( (y > destY+velocidad) || (y < destY-velocidad) ) {
+      y+=destY>y?velocidad:-velocidad;
+    } else {
+      flagY=0;
+    }
+
+    mapaX=x/mapa.getLongCasilla();
+    mapaY=y/mapa.getLongCasilla();
+    
+    Terreno* t=mapa(mapaX,mapaY);
+    if ( t != casilla ) {
+      if ( !cambiarCasilla(t) ) {
+	x=antX;
+	y=antY;
+	//	return 0;
+      }
+    }
+    SDL_Delay(70);
+  }
   this->estado=QUIETO;
   return 1;
 }
